@@ -14,8 +14,13 @@ const Auth = {
      * Initialisation
      */
     async init() {
+        // Essayer de réinitialiser Supabase si nécessaire
+        if (!window.supabaseClient && window.initSupabase) {
+            window.initSupabase();
+        }
+
         // Vérifier si Supabase est configuré
-        if (!window.isSupabaseConfigured || !window.isSupabaseConfigured()) {
+        if (!window.supabaseClient || !window.isSupabaseConfigured || !window.isSupabaseConfigured()) {
             console.warn('Auth: Supabase non configuré - mode démonstration');
             this.initDemoMode();
             return;
