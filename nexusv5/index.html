@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nexus - Agence web premium. Création de sites web qui maximisent vos revenus.">
+    <title>Nexus - Agence Web Premium</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <!-- Three.js Container -->
+        <div id="three-container"></div>
+    </div>
+
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link active">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">S</div>
+                    <span class="navbar-logo-text">Web Shop
+
+                    </span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="index.html" class="navbar-link active">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge">
+                            <span class="badge-dot"></span>
+                            Agence créative premium
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Créons votre <span class="text-gradient">présence digitale</span> de demain
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Nous concevons des expériences web extraordinaires qui captivent vos visiteurs et transforment
+                        votre vision en réalité digitale.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="offres.html" class="btn btn-primary">Découvrir nos offres</a>
+                        <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value text-gradient">150+</div>
+                            <div class="hero-stat-label">Projets livrés</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value text-gradient">98%</div>
+                            <div class="hero-stat-label">Clients satisfaits</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value text-gradient">5 ans</div>
+                            <div class="hero-stat-label">D'expérience</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value text-gradient">24/7</div>
+                            <div class="hero-stat-label">Support client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Pourquoi choisir <span class="text-gradient">Nexus</span> ?
+                    </h2>
+                    <p class="section-subtitle">
+                        Des sites web qui ne sont pas juste beaux, mais qui convertissent vos visiteurs en clients.
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="card benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <h3 class="benefit-title">Performance Maximale</h3>
+                        <p class="benefit-description">
+                            Des sites ultra-rapides qui se chargent en moins de 2 secondes, optimisés pour le SEO.
+                        </p>
+                    </div>
+
+                    <div class="card benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3 class="benefit-title">ROI Garanti</h3>
+                        <p class="benefit-description">
+                            Des designs pensés pour convertir vos visiteurs en clients et maximiser vos revenus.
+                        </p>
+                    </div>
+
+                    <div class="card benefit-card">
+                        <div class="benefit-icon">🎨</div>
+                        <h3 class="benefit-title">Design Premium</h3>
+                        <p class="benefit-description">
+                            Des interfaces modernes et uniques qui démarquent votre marque de la concurrence.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefits-link">
+                    <a href="services.html">Voir tous nos services →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="card cta-card">
+                    <h2 class="section-title">
+                        Prêt à <span class="text-gradient">transformer</span> votre business ?
+                    </h2>
+                    <p class="section-subtitle">
+                        Rejoignez les entreprises qui ont boosté leur présence en ligne avec Nexus.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">Démarrer mon projet →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="footer-logo-icon">N</div>
+                            <span class="footer-logo-text">Nexus</span>
+                        </a>
+                        <p class="footer-description">
+                            Agence web premium spécialisée dans la création de sites web modernes qui maximisent vos
+                            revenus.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="footer-social-link">in</a>
+                            <a href="#" class="footer-social-link">𝕏</a>
+                            <a href="#" class="footer-social-link">◎</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Services</h4>
+                        <a href="offres.html" class="footer-link">Site Vitrine</a>
+                        <a href="offres.html" class="footer-link">E-commerce</a>
+                        <a href="offres.html" class="footer-link">Sur-mesure</a>
+                        <a href="services.html" class="footer-link">Maintenance</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Entreprise</h4>
+                        <a href="index.html" class="footer-link">À propos</a>
+                        <a href="temoignages.html" class="footer-link">Témoignages</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Légal</h4>
+                        <a href="#" class="footer-link">Mentions légales</a>
+                        <a href="#" class="footer-link">Confidentialité</a>
+                        <a href="#" class="footer-link">CGV</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Nexus. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> à Paris, France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="three-effects.js"></script>
+    <script src="gsap-animations.js"></script>
+</body>
+
+
+</html>
