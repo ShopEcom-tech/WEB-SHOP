@@ -264,6 +264,47 @@
     <script src="three-effects.js"></script>
     <script src="gsap-animations.js"></script>
 
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            // Check if user is authenticated (Supabase or demo mode)
+            async function checkUserAuthentication() {
+                // Check demo mode first
+                const demoUser = localStorage.getItem('nexus_demo_user');
+                if (demoUser) {
+                    return true;
+                }
+
+                // Check Supabase auth
+                if (window.supabaseClient) {
+                    try {
+                        const { data: { user } } = await window.supabaseClient.auth.getUser();
+                        return !!user;
+                    } catch (error) {
+                        console.error('Auth check error:', error);
+                        return false;
+                    }
+                }
+
+                return false;
+            }
+
+            // Perform check
+            const isLoggedIn = await checkUserAuthentication();
+            if (!isLoggedIn) {
+                // Save current URL for redirect after login
+                sessionStorage.setItem('auth_redirect', 'contact.html');
+                // Redirect to login page
+                alert('Pour démarrer un projet, veuillez d\'abord vous connecter ou créer un compte.');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
     <!-- Web3Forms Submission Script -->
     <script>
         const form = document.getElementById('contact-form');

@@ -2,11 +2,22 @@
    WEB SHOP - CHECKOUT MANAGEMENT
    ======================================== */
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', async function () {
+
     // Check if we're on checkout page
     const checkoutForm = document.getElementById('checkout-form');
     if (!checkoutForm) return;
+
+    // Check if user is logged in before allowing checkout
+    const isLoggedIn = await checkUserAuthentication();
+    if (!isLoggedIn) {
+        // Save current URL for redirect after login
+        sessionStorage.setItem('auth_redirect', 'checkout.html');
+        // Redirect to login page
+        alert('Vous devez être connecté pour procéder au paiement.');
+        window.location.href = 'login.html';
+        return;
+    }
 
     // Check if cart is empty
     if (!window.cart || window.cart.items.length === 0) {
@@ -58,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const mobileTotal = document.getElementById('mobile-total');
 
         if (subtotalEl) subtotalEl.textContent = window.cart.formatPrice(window.cart.getSubtotal());
-        
+
         // Show discount if promo applied
         const discount = window.cart.getDiscount();
         if (discount > 0 && discountRow && discountEl) {
@@ -107,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Show/hide payment details
                 const method = e.target.value;
-                
+
                 if (cardDetails) cardDetails.style.display = method === 'card' ? 'block' : 'none';
                 if (transferDetails) transferDetails.style.display = method === 'transfer' ? 'block' : 'none';
                 if (installmentsDetails) installmentsDetails.style.display = method === 'installments' ? 'block' : 'none';
@@ -125,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             applyBtn.addEventListener('click', () => {
                 const code = promoInput.value;
                 const result = window.cart.applyPromoCode(code);
-                
+
                 if (promoMessage) {
                     promoMessage.textContent = result.message;
                     promoMessage.className = 'promo-message ' + (result.success ? 'success' : 'error');
@@ -234,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Simulate payment processing
     async function processPayment(orderData) {
         const submitBtns = document.querySelectorAll('.btn-checkout-submit');
-        
+
         // Show loading state
         submitBtns.forEach(btn => {
             btn.disabled = true;
@@ -294,3 +305,28 @@ spinnerStyles.textContent = `
     }
 `;
 document.head.appendChild(spinnerStyles);
+
+/**
+ * Check if user is authenticated (Supabase or demo mode)
+ */
+async function checkUserAuthentication() {
+    // Check demo mode first
+    const demoUser = localStorage.getItem('nexus_demo_user');
+    if (demoUser) {
+        return true;
+    }
+
+    // Check Supabase auth
+    if (window.supabaseClient) {
+        try {
+            const { data: { user } } = await window.supabaseClient.auth.getUser();
+            return !!user;
+        } catch (error) {
+            console.error('Auth check error:', error);
+            return false;
+        }
+    }
+
+    return false;
+}
+

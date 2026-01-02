@@ -12,7 +12,17 @@ const SUPABASE_URL = 'https://eyinuapucyzcdeldyuba.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5aW51YXB1Y3l6Y2RlbGR5dWJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjczNDkyMTAsImV4cCI6MjA4MjkyNTIxMH0.GgM4rNcP-mU9F-_4m0lG8fp6dcNRw2wGT5h-llRevn4';
 
 // Initialisation du client Supabase
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let supabase = null;
+
+if (window.supabase) {
+    try {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    } catch (error) {
+        console.error('Erreur lors de la création du client Supabase:', error);
+    }
+} else {
+    console.warn('Supabase JS SDK non chargé. Vérifiez votre connexion internet ou le CDN.');
+}
 
 // Exporter pour utilisation globale
 window.supabaseClient = supabase;

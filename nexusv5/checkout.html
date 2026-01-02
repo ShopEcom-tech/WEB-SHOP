@@ -123,61 +123,69 @@
         <!-- Checkout Section -->
         <section class="section" style="padding-top: 0;">
             <div class="container">
-                
+
                 <div class="checkout-layout">
-                    
+
                     <!-- Checkout Form -->
                     <div class="checkout-form-section">
                         <form id="checkout-form" class="checkout-form">
-                            
+
                             <!-- Personal Info -->
                             <div class="card checkout-card">
                                 <h3 class="checkout-card-title">👤 Informations personnelles</h3>
-                                
+
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label class="form-label" for="firstName">Prénom *</label>
-                                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Jean" required>
+                                        <input type="text" id="firstName" name="firstName" class="form-input"
+                                            placeholder="Jean" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="lastName">Nom *</label>
-                                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Dupont" required>
+                                        <input type="text" id="lastName" name="lastName" class="form-input"
+                                            placeholder="Dupont" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="email">Email *</label>
-                                    <input type="email" id="email" name="email" class="form-input" placeholder="jean.dupont@email.com" required>
+                                    <input type="email" id="email" name="email" class="form-input"
+                                        placeholder="jean.dupont@email.com" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Téléphone *</label>
-                                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="06 12 34 56 78" required>
+                                    <input type="tel" id="phone" name="phone" class="form-input"
+                                        placeholder="06 12 34 56 78" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="company">Entreprise (optionnel)</label>
-                                    <input type="text" id="company" name="company" class="form-input" placeholder="Nom de votre entreprise">
+                                    <input type="text" id="company" name="company" class="form-input"
+                                        placeholder="Nom de votre entreprise">
                                 </div>
                             </div>
 
                             <!-- Billing Address -->
                             <div class="card checkout-card">
                                 <h3 class="checkout-card-title">📍 Adresse de facturation</h3>
-                                
+
                                 <div class="form-group">
                                     <label class="form-label" for="address">Adresse *</label>
-                                    <input type="text" id="address" name="address" class="form-input" placeholder="123 Rue Example" required>
+                                    <input type="text" id="address" name="address" class="form-input"
+                                        placeholder="123 Rue Example" required>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label class="form-label" for="postalCode">Code postal *</label>
-                                        <input type="text" id="postalCode" name="postalCode" class="form-input" placeholder="75001" required>
+                                        <input type="text" id="postalCode" name="postalCode" class="form-input"
+                                            placeholder="75001" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="city">Ville *</label>
-                                        <input type="text" id="city" name="city" class="form-input" placeholder="Paris" required>
+                                        <input type="text" id="city" name="city" class="form-input" placeholder="Paris"
+                                            required>
                                     </div>
                                 </div>
 
@@ -196,7 +204,7 @@
                             <!-- Payment Method -->
                             <div class="card checkout-card">
                                 <h3 class="checkout-card-title">💳 Mode de paiement</h3>
-                                
+
                                 <div class="payment-options">
                                     <label class="payment-option selected">
                                         <input type="radio" name="paymentMethod" value="card" checked>
@@ -236,17 +244,20 @@
                                 <div id="card-details" class="card-details">
                                     <div class="form-group">
                                         <label class="form-label" for="cardNumber">Numéro de carte *</label>
-                                        <input type="text" id="cardNumber" name="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                        <input type="text" id="cardNumber" name="cardNumber" class="form-input"
+                                            placeholder="1234 5678 9012 3456" maxlength="19">
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label class="form-label" for="cardExpiry">Date d'expiration *</label>
-                                            <input type="text" id="cardExpiry" name="cardExpiry" class="form-input" placeholder="MM/AA" maxlength="5">
+                                            <input type="text" id="cardExpiry" name="cardExpiry" class="form-input"
+                                                placeholder="MM/AA" maxlength="5">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label" for="cardCvc">CVC *</label>
-                                            <input type="text" id="cardCvc" name="cardCvc" class="form-input" placeholder="123" maxlength="4">
+                                            <input type="text" id="cardCvc" name="cardCvc" class="form-input"
+                                                placeholder="123" maxlength="4">
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +268,8 @@
                                         <p><strong>Coordonnées bancaires :</strong></p>
                                         <p>IBAN : FR76 XXXX XXXX XXXX XXXX XXXX XXX</p>
                                         <p>BIC : XXXXXXXX</p>
-                                        <p class="transfer-note">Les informations de virement vous seront envoyées par email après validation.</p>
+                                        <p class="transfer-note">Les informations de virement vous seront envoyées par
+                                            email après validation.</p>
                                     </div>
                                 </div>
 
@@ -286,20 +298,24 @@
                             <!-- Additional Info -->
                             <div class="card checkout-card">
                                 <h3 class="checkout-card-title">📝 Informations complémentaires</h3>
-                                
+
                                 <div class="form-group">
-                                    <label class="form-label" for="projectDetails">Décrivez votre projet (optionnel)</label>
-                                    <textarea id="projectDetails" name="projectDetails" class="form-textarea" placeholder="Parlez-nous de votre projet, vos besoins spécifiques, votre calendrier..."></textarea>
+                                    <label class="form-label" for="projectDetails">Décrivez votre projet
+                                        (optionnel)</label>
+                                    <textarea id="projectDetails" name="projectDetails" class="form-textarea"
+                                        placeholder="Parlez-nous de votre projet, vos besoins spécifiques, votre calendrier..."></textarea>
                                 </div>
 
                                 <div class="form-checkbox">
                                     <input type="checkbox" id="newsletter" name="newsletter">
-                                    <label for="newsletter">Je souhaite recevoir les actualités et offres spéciales</label>
+                                    <label for="newsletter">Je souhaite recevoir les actualités et offres
+                                        spéciales</label>
                                 </div>
 
                                 <div class="form-checkbox">
                                     <input type="checkbox" id="terms" name="terms" required>
-                                    <label for="terms">J'accepte les <a href="#" class="link-purple">Conditions Générales de Vente</a> *</label>
+                                    <label for="terms">J'accepte les <a href="#" class="link-purple">Conditions
+                                            Générales de Vente</a> *</label>
                                 </div>
                             </div>
 
@@ -318,7 +334,7 @@
                     <div class="checkout-sidebar">
                         <div class="card checkout-summary-card sticky">
                             <h3 class="checkout-summary-title">📋 Récapitulatif</h3>
-                            
+
                             <!-- Order Items -->
                             <div id="checkout-items" class="checkout-items">
                                 <!-- Items will be inserted here by JS -->
@@ -328,7 +344,8 @@
                             <div class="promo-code-section">
                                 <div class="promo-code-input">
                                     <input type="text" id="promoCode" class="form-input" placeholder="Code promo">
-                                    <button type="button" id="applyPromo" class="btn btn-secondary btn-small">Appliquer</button>
+                                    <button type="button" id="applyPromo"
+                                        class="btn btn-secondary btn-small">Appliquer</button>
                                 </div>
                                 <p id="promo-message" class="promo-message"></p>
                             </div>
@@ -437,7 +454,8 @@
         <div class="modal-content">
             <div class="modal-icon">✅</div>
             <h2 class="modal-title">Commande confirmée !</h2>
-            <p class="modal-text">Merci pour votre confiance. Vous allez recevoir un email de confirmation avec tous les détails de votre commande.</p>
+            <p class="modal-text">Merci pour votre confiance. Vous allez recevoir un email de confirmation avec tous les
+                détails de votre commande.</p>
             <p class="modal-order-id">N° de commande : <span id="order-id">WS-2026-XXXX</span></p>
             <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
         </div>
@@ -455,6 +473,12 @@
     <script src="three-effects.js"></script>
     <script src="gsap-animations.js"></script>
     <script src="cart.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+
     <script src="checkout.js"></script>
 </body>
 

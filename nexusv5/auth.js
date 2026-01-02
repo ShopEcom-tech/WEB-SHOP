@@ -42,6 +42,15 @@ const Auth = {
         // Initialiser les formulaires
         this.initForms();
 
+        // Gérer la redirection après authentification (ex: OAuth)
+        if (this.currentUser) {
+            const authRedirect = sessionStorage.getItem('auth_redirect');
+            if (authRedirect) {
+                sessionStorage.removeItem('auth_redirect');
+                window.location.href = authRedirect;
+            }
+        }
+
         // Initialiser les boutons de déconnexion
         this.initLogoutButtons();
 
@@ -566,7 +575,14 @@ const Auth = {
                 const result = await this.login(email, password, remember);
 
                 if (result.success) {
-                    window.location.href = 'dashboard.html';
+                    // Check if there's a redirect pending
+                    const authRedirect = sessionStorage.getItem('auth_redirect');
+                    if (authRedirect) {
+                        sessionStorage.removeItem('auth_redirect');
+                        window.location.href = authRedirect;
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
                 } else {
                     errorDiv.querySelector('.error-message').textContent = result.error;
                     errorDiv.style.display = 'flex';
@@ -653,9 +669,14 @@ const Auth = {
 
         // Bouton Google
         const googleBtn = document.querySelector('.btn-social');
-        if (googleBtn && window.isSupabaseConfigured && window.isSupabaseConfigured()) {
+        if (googleBtn) {
             googleBtn.disabled = false;
-            googleBtn.addEventListener('click', async () => {
+            // Retirer les anciens listeners pour éviter les doublons
+            const newGoogleBtn = googleBtn.cloneNode(true);
+            googleBtn.parentNode.replaceChild(newGoogleBtn, googleBtn);
+
+            newGoogleBtn.addEventListener('click', async (e) => {
+                e.preventDefault(); // Empêcher le comportement par défaut
                 await this.loginWithGoogle();
             });
         }
