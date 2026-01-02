@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finaliser votre commande - Web Shop">
+    <title>Paiement - Web Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="cart.html" class="btn btn-primary">🛒 Panier</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="cart.html" class="btn btn-secondary cart-btn">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Progress Steps -->
+        <div class="checkout-progress">
+            <div class="container">
+                <div class="progress-steps">
+                    <div class="progress-step completed">
+                        <div class="progress-step-number">✓</div>
+                        <span class="progress-step-label">Panier</span>
+                    </div>
+                    <div class="progress-line completed"></div>
+                    <div class="progress-step active">
+                        <div class="progress-step-number">2</div>
+                        <span class="progress-step-label">Informations</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="progress-step-number">3</div>
+                        <span class="progress-step-label">Confirmation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Header -->
+        <header class="page-header" style="padding-top: 120px;">
+            <div class="container">
+                <span class="badge">💳 Paiement</span>
+                <h1 class="section-title">
+                    Finaliser votre <span class="text-gradient">commande</span>
+                </h1>
+                <p class="section-subtitle">
+                    Renseignez vos informations pour procéder au paiement sécurisé.
+                </p>
+            </div>
+        </header>
+
+        <!-- Checkout Section -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                
+                <div class="checkout-layout">
+                    
+                    <!-- Checkout Form -->
+                    <div class="checkout-form-section">
+                        <form id="checkout-form" class="checkout-form">
+                            
+                            <!-- Personal Info -->
+                            <div class="card checkout-card">
+                                <h3 class="checkout-card-title">👤 Informations personnelles</h3>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="firstName">Prénom *</label>
+                                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Jean" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="lastName">Nom *</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Dupont" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="jean.dupont@email.com" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Téléphone *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="06 12 34 56 78" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="company">Entreprise (optionnel)</label>
+                                    <input type="text" id="company" name="company" class="form-input" placeholder="Nom de votre entreprise">
+                                </div>
+                            </div>
+
+                            <!-- Billing Address -->
+                            <div class="card checkout-card">
+                                <h3 class="checkout-card-title">📍 Adresse de facturation</h3>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="address">Adresse *</label>
+                                    <input type="text" id="address" name="address" class="form-input" placeholder="123 Rue Example" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="postalCode">Code postal *</label>
+                                        <input type="text" id="postalCode" name="postalCode" class="form-input" placeholder="75001" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="city">Ville *</label>
+                                        <input type="text" id="city" name="city" class="form-input" placeholder="Paris" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="country">Pays *</label>
+                                    <select id="country" name="country" class="form-select" required>
+                                        <option value="FR" selected>France</option>
+                                        <option value="BE">Belgique</option>
+                                        <option value="CH">Suisse</option>
+                                        <option value="LU">Luxembourg</option>
+                                        <option value="CA">Canada</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Payment Method -->
+                            <div class="card checkout-card">
+                                <h3 class="checkout-card-title">💳 Mode de paiement</h3>
+                                
+                                <div class="payment-options">
+                                    <label class="payment-option selected">
+                                        <input type="radio" name="paymentMethod" value="card" checked>
+                                        <div class="payment-option-content">
+                                            <span class="payment-option-icon">💳</span>
+                                            <div class="payment-option-info">
+                                                <span class="payment-option-title">Carte bancaire</span>
+                                                <span class="payment-option-desc">Visa, Mastercard, CB</span>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="transfer">
+                                        <div class="payment-option-content">
+                                            <span class="payment-option-icon">🏦</span>
+                                            <div class="payment-option-info">
+                                                <span class="payment-option-title">Virement bancaire</span>
+                                                <span class="payment-option-desc">Délai 2-3 jours</span>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="installments">
+                                        <div class="payment-option-content">
+                                            <span class="payment-option-icon">📅</span>
+                                            <div class="payment-option-info">
+                                                <span class="payment-option-title">Paiement en 3x</span>
+                                                <span class="payment-option-desc">Sans frais</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Card Details (shown when card is selected) -->
+                                <div id="card-details" class="card-details">
+                                    <div class="form-group">
+                                        <label class="form-label" for="cardNumber">Numéro de carte *</label>
+                                        <input type="text" id="cardNumber" name="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label" for="cardExpiry">Date d'expiration *</label>
+                                            <input type="text" id="cardExpiry" name="cardExpiry" class="form-input" placeholder="MM/AA" maxlength="5">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="cardCvc">CVC *</label>
+                                            <input type="text" id="cardCvc" name="cardCvc" class="form-input" placeholder="123" maxlength="4">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Bank Transfer Info (hidden by default) -->
+                                <div id="transfer-details" class="transfer-details" style="display: none;">
+                                    <div class="transfer-info">
+                                        <p><strong>Coordonnées bancaires :</strong></p>
+                                        <p>IBAN : FR76 XXXX XXXX XXXX XXXX XXXX XXX</p>
+                                        <p>BIC : XXXXXXXX</p>
+                                        <p class="transfer-note">Les informations de virement vous seront envoyées par email après validation.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Installments Info (hidden by default) -->
+                                <div id="installments-details" class="installments-details" style="display: none;">
+                                    <div class="installments-info">
+                                        <p>Paiement en 3 fois sans frais :</p>
+                                        <div class="installments-breakdown">
+                                            <div class="installment-item">
+                                                <span>Aujourd'hui</span>
+                                                <span id="installment-1">0 €</span>
+                                            </div>
+                                            <div class="installment-item">
+                                                <span>Dans 30 jours</span>
+                                                <span id="installment-2">0 €</span>
+                                            </div>
+                                            <div class="installment-item">
+                                                <span>Dans 60 jours</span>
+                                                <span id="installment-3">0 €</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Info -->
+                            <div class="card checkout-card">
+                                <h3 class="checkout-card-title">📝 Informations complémentaires</h3>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="projectDetails">Décrivez votre projet (optionnel)</label>
+                                    <textarea id="projectDetails" name="projectDetails" class="form-textarea" placeholder="Parlez-nous de votre projet, vos besoins spécifiques, votre calendrier..."></textarea>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter">Je souhaite recevoir les actualités et offres spéciales</label>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">J'accepte les <a href="#" class="link-purple">Conditions Générales de Vente</a> *</label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button (Mobile) -->
+                            <div class="checkout-submit-mobile">
+                                <button type="submit" class="btn btn-primary btn-checkout-submit">
+                                    <span class="btn-text">Confirmer et payer</span>
+                                    <span class="btn-total" id="mobile-total">0 €</span>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- Order Summary Sidebar -->
+                    <div class="checkout-sidebar">
+                        <div class="card checkout-summary-card sticky">
+                            <h3 class="checkout-summary-title">📋 Récapitulatif</h3>
+                            
+                            <!-- Order Items -->
+                            <div id="checkout-items" class="checkout-items">
+                                <!-- Items will be inserted here by JS -->
+                            </div>
+
+                            <!-- Promo Code -->
+                            <div class="promo-code-section">
+                                <div class="promo-code-input">
+                                    <input type="text" id="promoCode" class="form-input" placeholder="Code promo">
+                                    <button type="button" id="applyPromo" class="btn btn-secondary btn-small">Appliquer</button>
+                                </div>
+                                <p id="promo-message" class="promo-message"></p>
+                            </div>
+
+                            <!-- Summary Details -->
+                            <div class="checkout-summary-details">
+                                <div class="summary-row">
+                                    <span>Sous-total</span>
+                                    <span id="checkout-subtotal">0 €</span>
+                                </div>
+                                <div class="summary-row" id="discount-row" style="display: none;">
+                                    <span>Réduction</span>
+                                    <span id="checkout-discount" class="discount-value">-0 €</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>TVA (20%)</span>
+                                    <span id="checkout-tax">0 €</span>
+                                </div>
+                                <div class="summary-row summary-total">
+                                    <span>Total TTC</span>
+                                    <span id="checkout-total" class="text-gradient">0 €</span>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button (Desktop) -->
+                            <button type="submit" form="checkout-form" class="btn btn-primary btn-checkout-submit">
+                                Confirmer et payer →
+                            </button>
+
+                            <!-- Security Info -->
+                            <div class="checkout-security">
+                                <div class="security-item">
+                                    <span class="security-icon">🔒</span>
+                                    <span>Paiement 100% sécurisé</span>
+                                </div>
+                                <div class="security-item">
+                                    <span class="security-icon">✓</span>
+                                    <span>Données cryptées SSL</span>
+                                </div>
+                            </div>
+
+                            <!-- Back to Cart -->
+                            <a href="cart.html" class="back-to-cart">← Retour au panier</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="footer-logo-icon">W</div>
+                            <span class="footer-logo-text">Web Shop</span>
+                        </a>
+                        <p class="footer-description">
+                            Agence web premium spécialisée dans la création de sites web modernes qui maximisent vos
+                            revenus.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/feed/" class="footer-social-link">in</a>
+                            <a href="https://x.com/?lang=fr" class="footer-social-link">𝕏</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Services</h4>
+                        <a href="offres.html" class="footer-link">Site Vitrine</a>
+                        <a href="offres.html" class="footer-link">E-commerce</a>
+                        <a href="offres.html" class="footer-link">Sur-mesure</a>
+                        <a href="services.html" class="footer-link">Maintenance</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Entreprise</h4>
+                        <a href="index.html" class="footer-link">À propos</a>
+                        <a href="temoignages.html" class="footer-link">Témoignages</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Légal</h4>
+                        <a href="#" class="footer-link">Mentions légales</a>
+                        <a href="#" class="footer-link">Confidentialité</a>
+                        <a href="#" class="footer-link">CGV</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h2 class="modal-title">Commande confirmée !</h2>
+            <p class="modal-text">Merci pour votre confiance. Vous allez recevoir un email de confirmation avec tous les détails de votre commande.</p>
+            <p class="modal-order-id">N° de commande : <span id="order-id">WS-2026-XXXX</span></p>
+            <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="three-effects.js"></script>
+    <script src="gsap-animations.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+</body>
+
+</html>

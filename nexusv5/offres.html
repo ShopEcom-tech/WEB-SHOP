@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nos offres - Sites web professionnels à partir de 1500€">
-    <title>Nos Offres - Nexus</title>
+    <title>Nos Offres - Web Shop</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart-checkout.css">
 </head>
 
 <body>
@@ -32,7 +33,6 @@
         <div class="bg-gradient bg-gradient-2"></div>
         <div class="bg-grid"></div>
         <canvas id="particles-canvas"></canvas>
-        <!-- Three.js Container -->
         <div id="three-container"></div>
     </div>
 
@@ -47,7 +47,7 @@
         <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
         <a href="contact.html" class="mobile-menu-link">Contact</a>
         <div class="mobile-menu-cta">
-            <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+            <a href="cart.html" class="btn btn-primary">🛒 Panier (<span class="cart-count-mobile">0</span>)</a>
         </div>
     </div>
 
@@ -69,7 +69,9 @@
                 </div>
 
                 <div class="navbar-cta">
-                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+                    <a href="cart.html" class="btn btn-secondary cart-btn">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
                 </div>
 
                 <button class="navbar-toggle">
@@ -167,7 +169,7 @@
                         </div>
 
                         <div class="pricing-cta">
-                            <a href="contact.html" class="btn btn-outline">Choisir ce plan</a>
+                            <button class="btn btn-outline" data-add-to-cart="vitrine">🛒 Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -246,7 +248,7 @@
                         </div>
 
                         <div class="pricing-cta">
-                            <a href="contact.html" class="btn btn-primary">Choisir ce plan</a>
+                            <button class="btn btn-primary" data-add-to-cart="ecommerce">🛒 Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -258,7 +260,9 @@
                         </div>
 
                         <div class="pricing-price">
-                            <span class="pricing-amount">Sur devis</span>
+                            <span class="pricing-amount">5 000</span>
+                            <span class="pricing-currency">€</span>
+                            <p class="pricing-period">À partir de</p>
                         </div>
 
                         <div class="pricing-features">
@@ -321,7 +325,7 @@
                         </div>
 
                         <div class="pricing-cta">
-                            <a href="contact.html" class="btn btn-outline">Choisir ce plan</a>
+                            <button class="btn btn-outline" data-add-to-cart="surmesure">🛒 Ajouter au panier</button>
                         </div>
                     </div>
 
@@ -349,7 +353,10 @@
                     <p class="section-subtitle">
                         Contactez-nous pour discuter de votre projet
                     </p>
-                    <a href="contact.html" class="btn btn-primary">Nous contacter →</a>
+                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-secondary">Nous contacter →</a>
+                        <a href="cart.html" class="btn btn-primary">🛒 Voir mon panier</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -360,17 +367,16 @@
                 <div class="footer-grid">
                     <div class="footer-brand">
                         <a href="index.html" class="footer-logo">
-                            <div class="footer-logo-icon">N</div>
-                            <span class="footer-logo-text">Nexus</span>
+                            <div class="footer-logo-icon">W</div>
+                            <span class="footer-logo-text">Web Shop</span>
                         </a>
                         <p class="footer-description">
                             Agence web premium spécialisée dans la création de sites web modernes qui maximisent vos
                             revenus.
                         </p>
                         <div class="footer-social">
-                            <a href="#" class="footer-social-link">in</a>
-                            <a href="#" class="footer-social-link">𝕏</a>
-                            <a href="#" class="footer-social-link">◎</a>
+                            <a href="https://www.linkedin.com/feed/" class="footer-social-link">in</a>
+                            <a href="https://x.com/?lang=fr" class="footer-social-link">𝕏</a>
                         </div>
                     </div>
 
@@ -398,8 +404,8 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p class="footer-copyright">© 2026 Nexus. Tous droits réservés.</p>
-                    <p class="footer-credit">Conçu avec <span>♥</span> à Paris, France</p>
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
                 </div>
             </div>
         </footer>
@@ -417,6 +423,7 @@
     <script src="script.js"></script>
     <script src="three-effects.js"></script>
     <script src="gsap-animations.js"></script>
+    <script src="cart.js"></script>
 </body>
 
 </html>
