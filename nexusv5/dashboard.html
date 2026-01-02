@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Votre espace client Nexus - Gérez vos projets et factures">
+    <title>Mon Espace - Web Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="#" class="btn btn-secondary" id="mobile-logout-btn">Déconnexion</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta navbar-user-menu">
+                    <div class="user-avatar" id="user-avatar">
+                        <span id="user-initials">JD</span>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="dashboard.html" class="user-dropdown-item active">
+                            <span class="dropdown-icon">📊</span>
+                            Mon espace
+                        </a>
+                        <a href="#profile" class="user-dropdown-item">
+                            <span class="dropdown-icon">👤</span>
+                            Mon profil
+                        </a>
+                        <a href="#orders" class="user-dropdown-item">
+                            <span class="dropdown-icon">📦</span>
+                            Mes commandes
+                        </a>
+                        <a href="#settings" class="user-dropdown-item">
+                            <span class="dropdown-icon">⚙️</span>
+                            Paramètres
+                        </a>
+                        <div class="user-dropdown-divider"></div>
+                        <a href="#" class="user-dropdown-item logout" id="logout-btn">
+                            <span class="dropdown-icon">🚪</span>
+                            Déconnexion
+                        </a>
+                    </div>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="dashboard-welcome">
+                    <h1>Bonjour, <span class="text-gradient" id="user-name">Jean</span> 👋</h1>
+                    <p>Bienvenue dans votre espace client</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <section class="section dashboard-section">
+            <div class="container">
+
+                <!-- Dashboard Stats -->
+                <div class="dashboard-stats">
+                    <div class="card dashboard-stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-orders">0</div>
+                            <div class="stat-label">Commandes</div>
+                        </div>
+                    </div>
+                    <div class="card dashboard-stat-card">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-projects">0</div>
+                            <div class="stat-label">Projets</div>
+                        </div>
+                    </div>
+                    <div class="card dashboard-stat-card">
+                        <div class="stat-icon">📄</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-invoices">0</div>
+                            <div class="stat-label">Factures</div>
+                        </div>
+                    </div>
+                    <div class="card dashboard-stat-card">
+                        <div class="stat-icon">💬</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-messages">0</div>
+                            <div class="stat-label">Messages</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+
+                    <!-- Main Content -->
+                    <div class="dashboard-main">
+
+                        <!-- Recent Orders -->
+                        <div class="card dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h2 class="dashboard-card-title">Mes commandes récentes</h2>
+                                <a href="#orders" class="dashboard-card-link">Voir tout →</a>
+                            </div>
+                            <div class="dashboard-card-content">
+                                <div id="orders-list" class="orders-list">
+                                    <!-- Orders will be loaded here -->
+                                    <div class="empty-state">
+                                        <div class="empty-icon">📦</div>
+                                        <h3>Aucune commande</h3>
+                                        <p>Vous n'avez pas encore passé de commande</p>
+                                        <a href="offres.html" class="btn btn-primary">Découvrir nos offres</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Projects -->
+                        <div class="card dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h2 class="dashboard-card-title">Projets en cours</h2>
+                            </div>
+                            <div class="dashboard-card-content">
+                                <div id="projects-list" class="projects-list">
+                                    <!-- Projects will be loaded here -->
+                                    <div class="empty-state">
+                                        <div class="empty-icon">🚀</div>
+                                        <h3>Aucun projet actif</h3>
+                                        <p>Vos projets apparaîtront ici une fois lancés</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="dashboard-sidebar">
+
+                        <!-- Profile Card -->
+                        <div class="card dashboard-card profile-card">
+                            <div class="profile-header">
+                                <div class="profile-avatar" id="profile-avatar">
+                                    <span id="profile-initials">JD</span>
+                                </div>
+                                <div class="profile-info">
+                                    <h3 id="profile-name">Jean Dupont</h3>
+                                    <p id="profile-email">jean@email.com</p>
+                                </div>
+                            </div>
+                            <div class="profile-details">
+                                <div class="profile-detail">
+                                    <span class="detail-label">Entreprise</span>
+                                    <span class="detail-value" id="profile-company">-</span>
+                                </div>
+                                <div class="profile-detail">
+                                    <span class="detail-label">Téléphone</span>
+                                    <span class="detail-value" id="profile-phone">-</span>
+                                </div>
+                                <div class="profile-detail">
+                                    <span class="detail-label">Membre depuis</span>
+                                    <span class="detail-value" id="profile-since">-</span>
+                                </div>
+                            </div>
+                            <a href="#profile" class="btn btn-outline btn-block">Modifier mon profil</a>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card dashboard-card">
+                            <h3 class="dashboard-card-title">Actions rapides</h3>
+                            <div class="quick-actions">
+                                <a href="contact.html" class="quick-action">
+                                    <span class="quick-action-icon">💬</span>
+                                    <span>Nouveau message</span>
+                                </a>
+                                <a href="offres.html" class="quick-action">
+                                    <span class="quick-action-icon">🛒</span>
+                                    <span>Commander</span>
+                                </a>
+                                <a href="#invoices" class="quick-action">
+                                    <span class="quick-action-icon">📄</span>
+                                    <span>Mes factures</span>
+                                </a>
+                                <a href="#support" class="quick-action">
+                                    <span class="quick-action-icon">🆘</span>
+                                    <span>Support</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Need Help -->
+                        <div class="card dashboard-card help-card">
+                            <div class="help-icon">💡</div>
+                            <h3>Besoin d'aide ?</h3>
+                            <p>Notre équipe est disponible pour répondre à toutes vos questions.</p>
+                            <a href="contact.html" class="btn btn-primary btn-block">Nous contacter</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="three-effects.js"></script>
+    <script src="gsap-animations.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

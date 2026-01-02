@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créez votre compte client Nexus">
+    <title>Créer un compte - Web Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="login.html" class="btn btn-primary">Se connecter</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="login.html" class="btn btn-secondary">Se connecter</a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Auth Section -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+
+                    <!-- Auth Card -->
+                    <div class="card auth-card">
+                        <div class="auth-header">
+                            <div class="auth-logo">
+                                <div class="auth-logo-icon">W</div>
+                            </div>
+                            <h1 class="auth-title">Créer un compte</h1>
+                            <p class="auth-subtitle">Rejoignez-nous et lancez votre projet web</p>
+                        </div>
+
+                        <form id="signup-form" class="auth-form">
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="firstname" class="form-label">Prénom</label>
+                                    <input type="text" id="firstname" name="firstname" class="form-input"
+                                        placeholder="Jean" required autocomplete="given-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname" class="form-label">Nom</label>
+                                    <input type="text" id="lastname" name="lastname" class="form-input"
+                                        placeholder="Dupont" required autocomplete="family-name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input"
+                                    placeholder="votre@email.com" required autocomplete="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" class="form-label">Entreprise <span
+                                        class="optional">(optionnel)</span></label>
+                                <input type="text" id="company" name="company" class="form-input"
+                                    placeholder="Nom de votre entreprise" autocomplete="organization">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Téléphone <span
+                                        class="optional">(optionnel)</span></label>
+                                <input type="tel" id="phone" name="phone" class="form-input"
+                                    placeholder="+33 6 12 34 56 78" autocomplete="tel">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="password" name="password" class="form-input"
+                                        placeholder="••••••••" required autocomplete="new-password" minlength="8">
+                                    <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">
+                                        <span class="eye-icon">👁️</span>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="password-strength-bar"></div>
+                                </div>
+                                <p class="form-hint">Minimum 8 caractères avec majuscule, minuscule et chiffre</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password_confirm" class="form-label">Confirmer le mot de passe</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="password_confirm" name="password_confirm"
+                                        class="form-input" placeholder="••••••••" required autocomplete="new-password"
+                                        minlength="8">
+                                    <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">
+                                        <span class="eye-icon">👁️</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="terms" id="terms" required>
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">J'accepte les <a href="#"
+                                            class="auth-link-inline">conditions d'utilisation</a> et la <a href="#"
+                                            class="auth-link-inline">politique de confidentialité</a></span>
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="newsletter" id="newsletter">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">Recevoir nos actualités et offres spéciales</span>
+                                </label>
+                            </div>
+
+                            <div id="signup-error" class="auth-error" style="display: none;">
+                                <span class="error-icon">⚠️</span>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary auth-submit">
+                                <span class="btn-text">Créer mon compte</span>
+                                <span class="btn-loader" style="display: none;">
+                                    <span class="loader-dot"></span>
+                                    <span class="loader-dot"></span>
+                                    <span class="loader-dot"></span>
+                                </span>
+                            </button>
+                        </form>
+
+                        <div class="auth-divider">
+                            <span>ou</span>
+                        </div>
+
+                        <div class="auth-social">
+                            <button class="btn btn-social" disabled>
+                                <span class="social-icon">G</span>
+                                <span>Continuer avec Google</span>
+                            </button>
+                        </div>
+
+                        <div class="auth-footer">
+                            <p>Déjà un compte ? <a href="login.html" class="auth-link-primary">Se connecter</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Auth Features -->
+                    <div class="auth-features">
+                        <h2 class="auth-features-title">Pourquoi créer un compte ?</h2>
+                        <div class="auth-feature">
+                            <div class="auth-feature-icon">🚀</div>
+                            <div class="auth-feature-content">
+                                <h3>Devis instantané</h3>
+                                <p>Recevez un devis personnalisé en quelques minutes</p>
+                            </div>
+                        </div>
+                        <div class="auth-feature">
+                            <div class="auth-feature-icon">📊</div>
+                            <div class="auth-feature-content">
+                                <h3>Suivi en temps réel</h3>
+                                <p>Suivez l'avancement de votre projet 24/7</p>
+                            </div>
+                        </div>
+                        <div class="auth-feature">
+                            <div class="auth-feature-icon">💬</div>
+                            <div class="auth-feature-content">
+                                <h3>Support dédié</h3>
+                                <p>Un interlocuteur unique pour tous vos projets</p>
+                            </div>
+                        </div>
+                        <div class="auth-feature">
+                            <div class="auth-feature-icon">🎁</div>
+                            <div class="auth-feature-content">
+                                <h3>Offres exclusives</h3>
+                                <p>Accédez à des réductions réservées aux membres</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="three-effects.js"></script>
+    <script src="gsap-animations.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>
