@@ -762,6 +762,113 @@ select {
 }
 
 /* ========================================
+   SOCIAL PROOF SECTION
+   ======================================== */
+.proof-section {
+    margin-top: 80px;
+    padding: 48px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.proof-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .proof-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.proof-item {
+    padding: 20px;
+}
+
+.proof-value {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.proof-label {
+    font-size: 14px;
+    color: #71717a;
+    font-weight: 500;
+}
+
+/* ========================================
+   GUARANTEE SECTION
+   ======================================== */
+.guarantee-section {
+    padding: 60px 0;
+}
+
+.guarantee-card {
+    padding: 48px 32px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 24px;
+}
+
+@media (min-width: 768px) {
+    .guarantee-card {
+        padding: 64px 80px;
+    }
+}
+
+.guarantee-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.guarantee-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.guarantee-title {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.guarantee-text {
+    font-size: 16px;
+    color: #a1a1aa;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.guarantee-text strong {
+    color: #ffffff;
+}
+
+.guarantee-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 100px;
+}
+
+/* ========================================
    CTA SECTION
    ======================================== */
 .cta-section {
