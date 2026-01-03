@@ -1,0 +1,25 @@
+-- ÉTAPE 1: Créer la table (exécutez d'abord ceci seul)
+CREATE TABLE IF NOT EXISTS orders (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID,
+    stripe_session_id TEXT,
+    stripe_payment_intent_id TEXT,
+    customer_email TEXT NOT NULL,
+    customer_name TEXT,
+    customer_phone TEXT,
+    company TEXT,
+    billing_address JSONB,
+    items JSONB DEFAULT '[]',
+    subtotal DECIMAL(10,2) DEFAULT 0,
+    tax DECIMAL(10,2) DEFAULT 0,
+    discount DECIMAL(10,2) DEFAULT 0,
+    total DECIMAL(10,2) DEFAULT 0,
+    currency TEXT DEFAULT 'eur',
+    status TEXT DEFAULT 'pending',
+    payment_method TEXT,
+    promo_code TEXT,
+    metadata JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW(),
+    paid_at TIMESTAMPTZ
+);
