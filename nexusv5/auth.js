@@ -10,6 +10,269 @@ const Auth = {
     currentProfile: null,
     isLoading: false,
 
+    // Regex patterns de validation
+    patterns: {
+        // Email valide (RFC 5322 simplifié)
+        email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+
+        // Mot de passe fort : min 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial
+        password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&€#^()_+=\[\]{}|;:'"<>,.\/\\~`-])[A-Za-z\d@$!%*?&€#^()_+=\[\]{}|;:'"<>,.\/\\~`-]{8,}$/,
+
+        // Nom/Prénom : lettres, espaces, tirets, apostrophes (2-50 caractères)
+        name: /^[a-zA-ZÀ-ÿ\s'-]{2,50}$/,
+
+        // Téléphone français (optionnel)
+        phone: /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/,
+
+        // Nom d'entreprise (optionnel, 2-100 caractères)
+        company: /^[a-zA-ZÀ-ÿ0-9\s&'.-]{2,100}$/,
+
+        // Pas de scripts ou balises HTML
+        noScript: /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+        noHtml: /<[^>]*>/g
+    },
+
+    /**
+     * Valider un email
+     */
+    validateEmail(email) {
+        if (!email || email.trim() === '') {
+            return { valid: false, error: 'L\'email est requis' };
+        }
+
+        // Nettoyer l'email
+        email = email.trim().toLowerCase();
+
+        // Vérifier la longueur
+        if (email.length > 254) {
+            return { valid: false, error: 'L\'email est trop long' };
+        }
+
+        // Vérifier le format
+        if (!this.patterns.email.test(email)) {
+            return { valid: false, error: 'Format d\'email invalide' };
+        }
+
+        // Vérifier les domaines suspects
+        const suspiciousDomains = ['tempmail', 'throwaway', 'guerrilla', '10minute', 'fakeinbox'];
+        if (suspiciousDomains.some(d => email.includes(d))) {
+            return { valid: false, error: 'Les emails temporaires ne sont pas acceptés' };
+        }
+
+        return { valid: true, value: email };
+    },
+
+    /**
+     * Valider un mot de passe
+     */
+    validatePassword(password) {
+        const errors = [];
+
+        if (!password) {
+            return { valid: false, error: 'Le mot de passe est requis' };
+        }
+
+        if (password.length < 8) {
+            errors.push('au moins 8 caractères');
+        }
+
+        if (!/[a-z]/.test(password)) {
+            errors.push('une lettre minuscule');
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            errors.push('une lettre majuscule');
+        }
+
+        if (!/\d/.test(password)) {
+            errors.push('un chiffre');
+        }
+
+        if (!/[@$!%*?&€#^()_+=\[\]{}|;:'"<>,.\/\\~`-]/.test(password)) {
+            errors.push('un caractère spécial (@$!%*?&...)');
+        }
+
+        // Vérifier les patterns communs faibles
+        const weakPatterns = ['password', '123456', 'azerty', 'qwerty', 'motdepasse'];
+        if (weakPatterns.some(p => password.toLowerCase().includes(p))) {
+            errors.push('évitez les mots de passe courants');
+        }
+
+        if (errors.length > 0) {
+            return {
+                valid: false,
+                error: 'Le mot de passe doit contenir : ' + errors.join(', ')
+            };
+        }
+
+        return { valid: true };
+    },
+
+    /**
+     * Valider un nom/prénom
+     */
+    validateName(name, fieldName = 'nom') {
+        if (!name || name.trim() === '') {
+            return { valid: false, error: `Le ${fieldName} est requis` };
+        }
+
+        // Nettoyer et vérifier les scripts
+        name = this.sanitizeInput(name);
+
+        if (name.length < 2) {
+            return { valid: false, error: `Le ${fieldName} doit contenir au moins 2 caractères` };
+        }
+
+        if (name.length > 50) {
+            return { valid: false, error: `Le ${fieldName} est trop long (max 50 caractères)` };
+        }
+
+        if (!this.patterns.name.test(name)) {
+            return { valid: false, error: `Le ${fieldName} contient des caractères invalides` };
+        }
+
+        return { valid: true, value: name.trim() };
+    },
+
+    /**
+     * Valider un téléphone (optionnel)
+     */
+    validatePhone(phone) {
+        if (!phone || phone.trim() === '') {
+            return { valid: true, value: null }; // Optionnel
+        }
+
+        // Nettoyer le numéro
+        const cleaned = phone.replace(/[\s.-]/g, '');
+
+        if (!this.patterns.phone.test(phone)) {
+            return { valid: false, error: 'Format de téléphone invalide (ex: 06 12 34 56 78)' };
+        }
+
+        return { valid: true, value: cleaned };
+    },
+
+    /**
+     * Valider un nom d'entreprise (optionnel)
+     */
+    validateCompany(company) {
+        if (!company || company.trim() === '') {
+            return { valid: true, value: null }; // Optionnel
+        }
+
+        company = this.sanitizeInput(company);
+
+        if (company.length > 100) {
+            return { valid: false, error: 'Le nom de l\'entreprise est trop long' };
+        }
+
+        if (!this.patterns.company.test(company)) {
+            return { valid: false, error: 'Le nom de l\'entreprise contient des caractères invalides' };
+        }
+
+        return { valid: true, value: company.trim() };
+    },
+
+    /**
+     * Nettoyer une entrée (protection XSS)
+     */
+    sanitizeInput(input) {
+        if (typeof input !== 'string') return '';
+
+        return input
+            .replace(this.patterns.noScript, '')
+            .replace(this.patterns.noHtml, '')
+            .replace(/javascript:/gi, '')
+            .replace(/on\w+=/gi, '')
+            .trim();
+    },
+
+    /**
+     * Valider tout le formulaire d'inscription
+     */
+    validateSignupForm(formData) {
+        const errors = [];
+        const cleanData = {};
+
+        // Prénom
+        const firstnameResult = this.validateName(formData.firstname, 'prénom');
+        if (!firstnameResult.valid) {
+            errors.push(firstnameResult.error);
+        } else {
+            cleanData.firstname = firstnameResult.value;
+        }
+
+        // Nom
+        const lastnameResult = this.validateName(formData.lastname, 'nom');
+        if (!lastnameResult.valid) {
+            errors.push(lastnameResult.error);
+        } else {
+            cleanData.lastname = lastnameResult.value;
+        }
+
+        // Email
+        const emailResult = this.validateEmail(formData.email);
+        if (!emailResult.valid) {
+            errors.push(emailResult.error);
+        } else {
+            cleanData.email = emailResult.value;
+        }
+
+        // Mot de passe
+        const passwordResult = this.validatePassword(formData.password);
+        if (!passwordResult.valid) {
+            errors.push(passwordResult.error);
+        } else {
+            cleanData.password = formData.password;
+        }
+
+        // Téléphone (optionnel)
+        const phoneResult = this.validatePhone(formData.phone);
+        if (!phoneResult.valid) {
+            errors.push(phoneResult.error);
+        } else {
+            cleanData.phone = phoneResult.value;
+        }
+
+        // Entreprise (optionnelle)
+        const companyResult = this.validateCompany(formData.company);
+        if (!companyResult.valid) {
+            errors.push(companyResult.error);
+        } else {
+            cleanData.company = companyResult.value;
+        }
+
+        return {
+            valid: errors.length === 0,
+            errors: errors,
+            data: cleanData
+        };
+    },
+
+    /**
+     * Valider le formulaire de connexion
+     */
+    validateLoginForm(email, password) {
+        const errors = [];
+
+        // Email
+        const emailResult = this.validateEmail(email);
+        if (!emailResult.valid) {
+            errors.push(emailResult.error);
+        }
+
+        // Mot de passe basique (la validation complète se fait côté serveur)
+        if (!password || password.length < 6) {
+            errors.push('Le mot de passe doit contenir au moins 6 caractères');
+        }
+
+        return {
+            valid: errors.length === 0,
+            errors: errors,
+            email: emailResult.value
+        };
+    },
+
     /**
      * Initialisation
      */
@@ -572,12 +835,20 @@ const Auth = {
                 const btnLoader = submitBtn.querySelector('.btn-loader');
                 const errorDiv = document.getElementById('login-error');
 
+                // Validation côté client
+                const validation = this.validateLoginForm(email, password);
+                if (!validation.valid) {
+                    errorDiv.querySelector('.error-message').textContent = validation.errors[0];
+                    errorDiv.style.display = 'flex';
+                    return;
+                }
+
                 btnText.style.display = 'none';
                 btnLoader.style.display = 'flex';
                 submitBtn.disabled = true;
                 errorDiv.style.display = 'none';
 
-                const result = await this.login(email, password, remember);
+                const result = await this.login(validation.email, password, remember);
 
                 if (result.success) {
                     // Check if there's a redirect pending
@@ -607,9 +878,10 @@ const Auth = {
 
                 const password = document.getElementById('password').value;
                 const passwordConfirm = document.getElementById('password_confirm').value;
+                const errorDiv = document.getElementById('signup-error');
 
+                // Vérifier que les mots de passe correspondent
                 if (password !== passwordConfirm) {
-                    const errorDiv = document.getElementById('signup-error');
                     errorDiv.querySelector('.error-message').textContent = 'Les mots de passe ne correspondent pas';
                     errorDiv.style.display = 'flex';
                     return;
@@ -624,17 +896,25 @@ const Auth = {
                     password: password
                 };
 
+                // Validation complète du formulaire
+                const validation = this.validateSignupForm(formData);
+                if (!validation.valid) {
+                    errorDiv.querySelector('.error-message').textContent = validation.errors[0];
+                    errorDiv.style.display = 'flex';
+                    return;
+                }
+
                 const submitBtn = signupForm.querySelector('.auth-submit');
                 const btnText = submitBtn.querySelector('.btn-text');
                 const btnLoader = submitBtn.querySelector('.btn-loader');
-                const errorDiv = document.getElementById('signup-error');
 
                 btnText.style.display = 'none';
                 btnLoader.style.display = 'flex';
                 submitBtn.disabled = true;
                 errorDiv.style.display = 'none';
 
-                const result = await this.signup(formData);
+                // Utiliser les données nettoyées
+                const result = await this.signup(validation.data);
 
                 if (result.success) {
                     // Afficher un message de succès si confirmation email requise
