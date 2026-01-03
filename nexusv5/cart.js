@@ -8,7 +8,7 @@ const PRODUCTS = {
         id: 'vitrine',
         name: 'Site Vitrine',
         description: 'Parfait pour présenter votre activité',
-        price: 1500,
+        price: 199,
         features: ['Design sur-mesure', 'Jusqu\'à 5 pages', 'Responsive', 'SEO de base', 'Formulaire de contact', 'Hébergement 1 an offert'],
         icon: '🌐'
     },
@@ -16,7 +16,7 @@ const PRODUCTS = {
         id: 'ecommerce',
         name: 'E-commerce',
         description: 'Lancez votre boutique en ligne',
-        price: 3500,
+        price: 399,
         features: ['Tout du plan Vitrine', 'Jusqu\'à 100 produits', 'Paiement sécurisé', 'Gestion des stocks', 'Tableau de bord admin', 'Support prioritaire 6 mois'],
         icon: '🛍️',
         popular: true
@@ -25,7 +25,7 @@ const PRODUCTS = {
         id: 'surmesure',
         name: 'Sur-mesure',
         description: 'Solution personnalisée à vos besoins',
-        price: 5000,
+        price: 799,
         features: ['Architecture personnalisée', 'Fonctionnalités sur-mesure', 'Intégrations API', 'Performances optimisées', 'Accompagnement dédié', 'Maintenance premium'],
         icon: '⚡',
         customPrice: true
@@ -83,7 +83,7 @@ class Cart {
         if (!product) return false;
 
         const existingItem = this.items.find(item => item.id === productId);
-        
+
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
@@ -198,7 +198,7 @@ class Cart {
             cartItemsList.innerHTML = this.items.map(item => {
                 const product = PRODUCTS[item.id];
                 if (!product) return '';
-                
+
                 return `
                     <div class="cart-item" data-id="${item.id}">
                         <div class="cart-item-icon">${product.icon}</div>
