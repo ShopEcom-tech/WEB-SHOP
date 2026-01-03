@@ -3551,3 +3551,100 @@ select {
     background: rgba(124, 58, 237, 0.1);
     border-color: rgba(124, 58, 237, 0.5);
 }
+
+/* ========================================
+   AUTH REQUIRED PAGE
+   ======================================== */
+.auth-required-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    padding: 120px 0 60px;
+}
+
+.auth-required-card {
+    max-width: 500px;
+    padding: 48px;
+    text-align: center;
+}
+
+.auth-required-icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+}
+
+.auth-required-title {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.auth-required-text {
+    font-size: 16px;
+    color: #a1a1aa;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.auth-required-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 480px) {
+    .auth-required-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.auth-required-buttons .btn {
+    min-width: 180px;
+}
+
+.auth-required-benefits {
+    text-align: left;
+    padding: 24px;
+    background: rgba(124, 58, 237, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.auth-required-benefits-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a78bfa;
+    margin-bottom: 16px;
+}
+
+.auth-required-benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #d4d4d8;
+}
+
+.benefit-check {
+    color: #4ade80;
+    font-weight: 600;
+}
+
+.auth-required-back {
+    margin-top: 32px;
+}
+
+.back-link {
+    color: #a1a1aa;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #a78bfa;
+}

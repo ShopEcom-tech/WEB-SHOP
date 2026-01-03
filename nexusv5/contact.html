@@ -300,9 +300,8 @@
             if (!isLoggedIn) {
                 // Save current URL for redirect after login
                 sessionStorage.setItem('auth_redirect', 'contact.html');
-                // Redirect to login page
-                alert('Pour démarrer un projet, veuillez d\'abord vous connecter ou créer un compte.');
-                window.location.href = 'login.html';
+                // Redirect to auth-required page
+                window.location.href = 'auth-required.html';
             }
         });
     </script>
