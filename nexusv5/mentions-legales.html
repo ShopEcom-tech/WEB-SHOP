@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Votre panier - Web Shop">
-    <title>Panier - Web Shop</title>
+    <meta name="description" content="Mentions légales - Web Shop">
+    <title>Mentions Légales - Web Shop</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +47,7 @@
         <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
         <a href="contact.html" class="mobile-menu-link">Contact</a>
         <div class="mobile-menu-cta">
-            <a href="cart.html" class="btn btn-primary">🛒 Panier (<span class="cart-count-mobile">0</span>)</a>
+            <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
         </div>
     </div>
 
@@ -70,9 +70,7 @@
                 </div>
 
                 <div class="navbar-cta">
-                    <a href="cart.html" class="btn btn-secondary cart-btn">
-                        🛒 <span class="cart-count">0</span>
-                    </a>
+                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
                 </div>
 
                 <button class="navbar-toggle">
@@ -90,104 +88,90 @@
         <!-- Page Header -->
         <header class="page-header">
             <div class="container">
-                <span class="badge">🛒 Votre Panier</span>
+                <span class="badge">📜 Mentions Légales</span>
                 <h1 class="section-title">
-                    Récapitulatif de votre <span class="text-gradient">commande</span>
+                    Mentions <span class="text-gradient">Légales</span>
                 </h1>
-                <p class="section-subtitle">
-                    Vérifiez les prestations sélectionnées avant de procéder au paiement.
-                </p>
             </div>
         </header>
 
-        <!-- Cart Section -->
-        <section class="section" style="padding-top: 0;">
+        <!-- Legal Content -->
+        <section class="section legal-section" style="padding-top: 0;">
             <div class="container">
+                <div class="legal-content">
 
-                <!-- Empty Cart Message -->
-                <div id="empty-cart" class="empty-cart" style="display: none;">
-                    <div class="card empty-cart-card">
-                        <div class="empty-cart-icon">🛒</div>
-                        <h3>Votre panier est vide</h3>
-                        <p>Découvrez nos offres et ajoutez des prestations à votre panier.</p>
-                        <a href="offres.html" class="btn btn-primary">Voir nos offres →</a>
+                    <div class="legal-block">
+                        <h2>1. Éditeur du site</h2>
+                        <p>
+                            <strong>Web Shop</strong><br>
+                            Adresse : [Votre adresse]<br>
+                            Téléphone : [Votre téléphone]<br>
+                            Email : alphaacademy2026@outlook.com<br>
+                            SIRET : [Votre numéro SIRET]<br>
+                            Directeur de publication : [Nom du directeur]
+                        </p>
                     </div>
+
+                    <div class="legal-block">
+                        <h2>2. Hébergeur</h2>
+                        <p>
+                            Ce site est hébergé par :<br>
+                            <strong>[Nom de l'hébergeur]</strong><br>
+                            Adresse : [Adresse de l'hébergeur]<br>
+                            Téléphone : [Téléphone de l'hébergeur]
+                        </p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>3. Propriété intellectuelle</h2>
+                        <p>
+                            L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes, icônes, etc.)
+                            est la propriété exclusive de Web Shop, sauf mention contraire. Toute reproduction,
+                            représentation, modification, publication ou adaptation de tout ou partie des éléments
+                            du site est interdite sans autorisation écrite préalable.
+                        </p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>4. Responsabilité</h2>
+                        <p>
+                            Web Shop s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées
+                            sur ce site. Toutefois, Web Shop ne peut garantir l'exactitude, la précision ou
+                            l'exhaustivité des informations mises à disposition. En conséquence, Web Shop décline
+                            toute responsabilité pour les éventuelles erreurs ou omissions.
+                        </p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>5. Liens hypertextes</h2>
+                        <p>
+                            Le site peut contenir des liens vers d'autres sites internet. Web Shop n'exerce aucun
+                            contrôle sur ces sites et n'assume aucune responsabilité quant à leur contenu.
+                        </p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>6. Droit applicable</h2>
+                        <p>
+                            Le présent site et les mentions légales sont soumis au droit français. En cas de litige,
+                            les tribunaux français seront seuls compétents.
+                        </p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>7. Contact</h2>
+                        <p>
+                            Pour toute question concernant ces mentions légales, vous pouvez nous contacter à
+                            l'adresse email : <a
+                                href="mailto:alphaacademy2026@outlook.com">alphaacademy2026@outlook.com</a>
+                        </p>
+                    </div>
+
                 </div>
 
-                <!-- Cart Content -->
-                <div id="cart-content" class="cart-layout">
-
-                    <!-- Cart Items -->
-                    <div class="cart-items">
-                        <div class="card cart-items-card">
-                            <h3 class="cart-items-title">Prestations sélectionnées</h3>
-                            <div id="cart-items-list" class="cart-items-list">
-                                <!-- Items will be inserted here by JS -->
-                            </div>
-                        </div>
-
-                        <!-- Add More Services -->
-                        <div class="cart-add-more">
-                            <a href="offres.html" class="btn btn-secondary">+ Ajouter d'autres prestations</a>
-                        </div>
-                    </div>
-
-                    <!-- Cart Summary -->
-                    <div class="cart-summary">
-                        <div class="card cart-summary-card">
-                            <h3 class="cart-summary-title">Résumé</h3>
-
-                            <div class="cart-summary-details">
-                                <div class="cart-summary-row">
-                                    <span>Sous-total</span>
-                                    <span id="cart-subtotal">0 €</span>
-                                </div>
-                                <div class="cart-summary-row">
-                                    <span>TVA (20%)</span>
-                                    <span id="cart-tax">0 €</span>
-                                </div>
-                                <div class="cart-summary-row cart-summary-total">
-                                    <span>Total TTC</span>
-                                    <span id="cart-total" class="text-gradient">0 €</span>
-                                </div>
-                            </div>
-
-                            <div class="cart-summary-actions">
-                                <a href="checkout.html" class="btn btn-primary btn-checkout">
-                                    Procéder au paiement →
-                                </a>
-                                <p class="cart-secure-text">🔒 Paiement 100% sécurisé</p>
-                            </div>
-
-                            <!-- Payment Methods -->
-                            <div class="cart-payment-methods">
-                                <p class="cart-payment-label">Moyens de paiement acceptés</p>
-                                <div class="cart-payment-icons">
-                                    <span class="payment-icon">💳</span>
-                                    <span class="payment-icon">🏦</span>
-                                    <span class="payment-icon">📱</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Trust Badges -->
-                        <div class="cart-trust">
-                            <div class="cart-trust-item">
-                                <span class="cart-trust-icon">✓</span>
-                                <span>Garantie satisfait ou remboursé</span>
-                            </div>
-                            <div class="cart-trust-item">
-                                <span class="cart-trust-icon">✓</span>
-                                <span>Support dédié inclus</span>
-                            </div>
-                            <div class="cart-trust-item">
-                                <span class="cart-trust-icon">✓</span>
-                                <span>Livraison sous 2-4 semaines</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="legal-back">
+                    <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
                 </div>
-
             </div>
         </section>
 
@@ -220,7 +204,7 @@
 
                     <div class="footer-column">
                         <h4 class="footer-column-title">Entreprise</h4>
-                        <a href="index.html" class="footer-link">À propos</a>
+                        <a href="a-propos.html" class="footer-link">À propos</a>
                         <a href="temoignages.html" class="footer-link">Témoignages</a>
                         <a href="contact.html" class="footer-link">Contact</a>
                     </div>
@@ -253,7 +237,6 @@
     <script src="script.js"></script>
     <script src="three-effects.js"></script>
     <script src="gsap-animations.js"></script>
-    <script src="cart.js"></script>
 </body>
 
 </html>
