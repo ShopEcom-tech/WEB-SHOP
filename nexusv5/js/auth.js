@@ -612,15 +612,20 @@ const Auth = {
      * Connexion en mode démo
      */
     demoLogin(email, password) {
-        // Simuler une vérification basique
-        if (password.length < 6) {
-            return { success: false, error: 'Mot de passe incorrect' };
+        // Valider les champs
+        const emailValidation = this.validateEmail(email);
+        if (!emailValidation.valid) {
+            return { success: false, error: emailValidation.error };
+        }
+
+        if (!password || password.length < 6) {
+            return { success: false, error: 'Le mot de passe doit contenir au moins 6 caractères' };
         }
 
         const demoUser = {
             id: 'demo-' + Date.now(),
-            email: email,
-            name: email.split('@')[0],
+            email: emailValidation.value,
+            name: emailValidation.value.split('@')[0],
             role: 'client',
             created_at: new Date().toISOString()
         };

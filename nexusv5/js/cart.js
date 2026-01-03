@@ -187,9 +187,40 @@ class Cart {
         return this.items.reduce((count, item) => count + item.quantity, 0);
     }
 
-    // Apply promo code
-    applyPromoCode(code) {
+    // Apply promo code - avec validation Supabase (fallback local)
+    async applyPromoCode(code) {
         const upperCode = code.toUpperCase().trim();
+        const subtotal = this.getSubtotal();
+
+        // Essayer la validation Supabase d'abord
+        if (window.supabaseClient && window.isSupabaseConfigured && window.isSupabaseConfigured()) {
+            try {
+                const { data, error } = await window.supabaseClient
+                    .rpc('validate_promo_code', {
+                        p_code: upperCode,
+                        p_cart_total: subtotal
+                    });
+
+                if (!error && data && data.valid) {
+                    // Stocker les infos du code validé
+                    this.validatedPromo = {
+                        code: data.code,
+                        discountType: data.discount_type,
+                        discountValue: data.discount_value,
+                        discountAmount: data.discount_amount
+                    };
+                    this.savePromoCode(upperCode);
+                    this.renderCart();
+                    return { success: true, message: data.description + ' appliquée !' };
+                } else if (data && !data.valid) {
+                    return { success: false, message: data.error || 'Code promo invalide' };
+                }
+            } catch (err) {
+                console.warn('Supabase promo validation failed, using local fallback:', err);
+            }
+        }
+
+        // Fallback local (pour dev/mode démo)
         if (PROMO_CODES[upperCode]) {
             this.savePromoCode(upperCode);
             this.renderCart();

@@ -368,15 +368,39 @@
                                 Confirmer et payer →
                             </button>
 
-                            <!-- Security Info -->
-                            <div class="checkout-security">
-                                <div class="security-item">
-                                    <span class="security-icon">🔒</span>
-                                    <span>Paiement 100% sécurisé</span>
+                            <!-- Trust Badges - Enhanced -->
+                            <div class="trust-badges">
+                                <!-- Stripe Badge -->
+                                <div class="trust-badge trust-badge-stripe">
+                                    <svg class="stripe-logo" viewBox="0 0 60 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M60 12.94C60 8.672 57.918 5.262 53.846 5.262C49.762 5.262 47.313 8.672 47.313 12.91C47.313 17.865 50.22 20.588 54.389 20.588C56.423 20.588 57.987 20.098 59.162 19.393V16.013C57.987 16.656 56.627 17.053 54.903 17.053C53.21 17.053 51.712 16.44 51.518 14.349H59.957C59.957 14.103 60 13.32 60 12.94ZM51.455 11.307C51.455 9.307 52.628 8.549 53.827 8.549C54.996 8.549 56.106 9.307 56.106 11.307H51.455ZM40.961 5.262C39.236 5.262 38.138 6.057 37.534 6.607L37.278 5.507H33.639V24.605L37.627 23.757L37.639 19.424C38.256 19.882 39.168 20.588 40.93 20.588C44.389 20.588 47.52 17.773 47.52 12.786C47.508 8.243 44.341 5.262 40.961 5.262ZM39.982 16.898C38.793 16.898 38.088 16.44 37.639 15.889L37.627 10.014C38.113 9.401 38.831 8.952 39.982 8.952C41.812 8.952 43.08 10.973 43.08 12.91C43.08 14.897 41.825 16.898 39.982 16.898ZM28.355 4.312L32.362 3.452V0L28.355 0.848V4.312ZM28.355 5.507H32.362V20.343H28.355V5.507ZM24.092 6.72L23.822 5.507H20.247V20.343H24.234V9.77C25.158 8.584 26.694 8.797 27.168 8.952V5.507C26.669 5.332 24.997 5.05 24.092 6.72ZM15.846 1.94L11.959 2.775L11.947 16.196C11.947 18.727 13.819 20.6 16.337 20.6C17.714 20.6 18.737 20.355 19.303 20.068V16.626C18.75 16.851 15.833 17.742 15.833 15.211V9.06H19.303V5.507H15.833L15.846 1.94ZM4.006 10.014C4.006 9.215 4.642 8.889 5.715 8.889C7.239 8.889 9.149 9.354 10.673 10.168V6.14C9.019 5.444 7.377 5.17 5.715 5.17C2.286 5.17 0 6.997 0 9.917C0 14.472 6.249 13.703 6.249 15.674C6.249 16.624 5.447 16.95 4.317 16.95C2.66 16.95 0.556 16.28 0 15.706V19.795C1.037 20.283 2.704 20.588 4.317 20.588C7.828 20.588 10.256 18.821 10.256 15.857C10.237 10.973 4.006 11.898 4.006 10.014Z"
+                                            fill="#635BFF" />
+                                    </svg>
+                                    <span class="trust-badge-text">Paiement sécurisé</span>
                                 </div>
-                                <div class="security-item">
-                                    <span class="security-icon">✓</span>
-                                    <span>Données cryptées SSL</span>
+
+                                <!-- SSL Badge -->
+                                <div class="trust-badge trust-badge-ssl">
+                                    <div class="trust-badge-icon">🔐</div>
+                                    <span class="trust-badge-text">SSL 256-bit</span>
+                                </div>
+
+                                <!-- Guarantee Badge -->
+                                <div class="trust-badge trust-badge-guarantee">
+                                    <div class="trust-badge-icon">✓</div>
+                                    <span class="trust-badge-text">Satisfait ou remboursé</span>
+                                </div>
+                            </div>
+
+                            <!-- Payment Partners -->
+                            <div class="payment-partners">
+                                <span class="payment-partners-label">Acceptés :</span>
+                                <div class="payment-partners-icons">
+                                    <span class="partner-icon">💳</span>
+                                    <span class="partner-icon">🏦</span>
+                                    <span class="partner-icon">📱</span>
                                 </div>
                             </div>
 
@@ -469,6 +493,7 @@
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
     <script src="../js/supabase.js"></script>
     <script src="../js/auth.js"></script>
 

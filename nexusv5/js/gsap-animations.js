@@ -318,30 +318,37 @@
         // ========================================
         const footer = document.querySelector('.footer');
         if (footer) {
-            gsap.from('.footer-brand', {
-                scrollTrigger: {
-                    trigger: footer,
-                    start: 'top 90%',
-                    toggleActions: 'play none none reverse'
-                },
-                x: -50,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
+            const footerBrand = document.querySelector('.footer-brand');
+            const footerColumns = document.querySelectorAll('.footer-column');
 
-            gsap.from('.footer-column', {
-                scrollTrigger: {
-                    trigger: footer,
-                    start: 'top 90%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
+            if (footerBrand) {
+                gsap.from(footerBrand, {
+                    scrollTrigger: {
+                        trigger: footer,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    x: -50,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                });
+            }
+
+            if (footerColumns.length > 0) {
+                gsap.from(footerColumns, {
+                    scrollTrigger: {
+                        trigger: footer,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                });
+            }
         }
 
         // ========================================

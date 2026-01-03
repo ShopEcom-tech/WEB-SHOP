@@ -2,23 +2,24 @@
  * Web Shop - Stripe Configuration
  * 
  * Configuration de Stripe pour les paiements.
- * Mode TEST - À changer en mode LIVE pour la production.
+ * Utilise la configuration centralisée depuis config.js
  */
 
 (function () {
     'use strict';
 
-    // Clé publique Stripe (mode TEST)
-    // ⚠️ En production, remplacez par votre clé pk_live_...
-    const STRIPE_PUBLIC_KEY = 'pk_test_51SZFCQHiixEhrbjyMdXmQwYAeqMtcfr4AsdI56VUV7JiHJ8tOkorroPPQI4rILehvNLmJSPn5b6dm7dJQCQ27pNp00KfhnfPie';
+    // Vérifier que NexusConfig est chargé
+    if (!window.NexusConfig) {
+        console.error('❌ NexusConfig non chargé. Assurez-vous que config.js est inclus avant stripe-config.js');
+        return;
+    }
 
-    // URLs de redirection après paiement
-    const SUCCESS_URL = window.location.origin + '/success.html';
-    const CANCEL_URL = window.location.origin + '/cancel.html';
-
-    // URL de l'Edge Function Supabase (à configurer)
-    const SUPABASE_URL = 'https://eyinuapucyzcdeldyuba.supabase.co';
-    const CHECKOUT_FUNCTION_URL = SUPABASE_URL + '/functions/v1/create-checkout-session';
+    // Récupérer la config depuis NexusConfig
+    const STRIPE_PUBLIC_KEY = window.NexusConfig.stripe.publicKey;
+    const redirectUrls = window.NexusConfig.getRedirectUrls();
+    const SUCCESS_URL = redirectUrls.success;
+    const CANCEL_URL = redirectUrls.cancel;
+    const CHECKOUT_FUNCTION_URL = window.NexusConfig.api.checkoutSession;
 
     // Produits avec leurs Price IDs Stripe (Mode TEST)
     const STRIPE_PRODUCTS = {
