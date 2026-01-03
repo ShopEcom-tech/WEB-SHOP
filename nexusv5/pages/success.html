@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -40,14 +40,14 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="../index.html" class="mobile-menu-link">Accueil</a>
         <a href="offres.html" class="mobile-menu-link">Offres</a>
         <a href="services.html" class="mobile-menu-link">Services</a>
         <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
         <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
         <a href="contact.html" class="mobile-menu-link">Contact</a>
         <div class="mobile-menu-cta">
-            <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+            <a href="../index.html" class="btn btn-primary">Retour à l'accueil</a>
         </div>
     </div>
 
@@ -55,13 +55,13 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-inner">
-                <a href="index.html" class="navbar-logo">
+                <a href="../index.html" class="navbar-logo">
                     <div class="navbar-logo-icon">W</div>
                     <span class="navbar-logo-text">Web Shop</span>
                 </a>
 
                 <div class="navbar-links">
-                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="../index.html" class="navbar-link">Accueil</a>
                     <a href="offres.html" class="navbar-link">Offres</a>
                     <a href="services.html" class="navbar-link">Services</a>
                     <a href="abonnement.html" class="navbar-link">Abonnements</a>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="navbar-cta">
-                    <a href="index.html" class="btn btn-primary">Accueil</a>
+                    <a href="../index.html" class="btn btn-primary">Accueil</a>
                 </div>
 
                 <button class="navbar-toggle">
@@ -130,7 +130,7 @@
 
                         <div class="auth-required-buttons" style="margin-top: 32px;">
                             <a href="dashboard.html" class="btn btn-primary">Accéder à mon espace →</a>
-                            <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
+                            <a href="../index.html" class="btn btn-secondary">Retour à l'accueil</a>
                         </div>
                     </div>
 
@@ -158,13 +158,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script src="script.js"></script>
-    <script src="three-effects.js"></script>
-    <script src="gsap-animations.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/three-effects.js"></script>
+    <script src="../js/gsap-animations.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
 
     <script>
         // Générer un numéro de commande et afficher la date
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', async function () {
             // Numéro de commande
             const orderNumber = 'WS-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase();
             document.getElementById('order-number').textContent = orderNumber;
@@ -173,6 +177,28 @@
             const now = new Date();
             const options = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
             document.getElementById('order-date').textContent = now.toLocaleDateString('fr-FR', options);
+
+            // Récupérer le customer ID des paramètres URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const customerId = urlParams.get('cid');
+
+            // Mettre à jour le statut du client à "paid" via Supabase
+            if (customerId && window.supabaseClient) {
+                try {
+                    const { error } = await window.supabaseClient
+                        .from('customer_info')
+                        .update({ status: 'paid' })
+                        .eq('id', parseInt(customerId));
+
+                    if (error) {
+                        console.error('Erreur Supabase:', error.message);
+                    } else {
+                        console.log('✅ Statut client mis à jour: paid');
+                    }
+                } catch (error) {
+                    console.error('Erreur mise à jour statut:', error);
+                }
+            }
 
             // Vider le panier
             localStorage.removeItem('webshop_cart');

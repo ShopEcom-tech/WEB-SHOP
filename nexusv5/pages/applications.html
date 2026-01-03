@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Applications sur-mesure - E-learning, langues, formations et plus">
+    <title>Applications - Web Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="../index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Sites Web</a>
+        <a href="applications.html" class="mobile-menu-link active">Applications</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="cart.html" class="btn btn-primary">🛒 Panier (<span class="cart-count-mobile">0</span>)</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="../index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="../index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Sites Web</a>
+                    <a href="applications.html" class="navbar-link active">Applications</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="abonnement.html" class="navbar-link">Abonnements</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="cart.html" class="btn btn-secondary cart-btn">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="container">
+                <span class="badge">📱 Applications</span>
+                <h1 class="section-title">
+                    Applications <span class="text-gradient">Sur-Mesure</span>
+                </h1>
+                <p class="section-subtitle">
+                    E-learning, langues, formations, productivité... Décrivez vos besoins, on crée votre app !
+                </p>
+            </div>
+        </header>
+
+        <!-- Pricing Section -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="pricing-grid">
+
+                    <!-- App 1: App Essentielle -->
+                    <div class="card pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">App Essentielle</h3>
+                            <p class="pricing-description">Idéale pour lancer votre projet</p>
+                        </div>
+
+                        <div class="pricing-price">
+                            <span class="pricing-amount">299</span>
+                            <span class="pricing-currency">€</span>
+                            <p class="pricing-period">Paiement unique</p>
+                            <span class="pricing-negotiable">💬 Prix négociable selon vos besoins</span>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Application mobile ou web</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Jusqu'à 5 fonctionnalités</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Design moderne et responsive</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Authentification utilisateurs</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Base de données incluse</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Support 3 mois</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-cta">
+                            <button class="btn btn-outline" data-add-to-cart="app-basic">🛒 Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- App 2: App Pro (Populaire) -->
+                    <div class="card pricing-card popular">
+                        <div class="pricing-badge">⭐ Populaire</div>
+
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">App Pro</h3>
+                            <p class="pricing-description">Pour les projets ambitieux</p>
+                        </div>
+
+                        <div class="pricing-price">
+                            <span class="pricing-amount">599</span>
+                            <span class="pricing-currency">€</span>
+                            <p class="pricing-period">Paiement unique</p>
+                            <span class="pricing-negotiable">💬 Prix négociable selon vos besoins</span>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Tout de l'App Essentielle</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">E-learning / Quiz / Progression</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Tableau de bord admin</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Notifications push</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Paiement intégré (Stripe)</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Formation + Support 6 mois</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-cta">
+                            <button class="btn btn-primary" data-add-to-cart="app-pro">🛒 Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- App 3: App Sur-Mesure -->
+                    <div class="card pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">App Sur-Mesure</h3>
+                            <p class="pricing-description">Solution 100% personnalisée</p>
+                        </div>
+
+                        <div class="pricing-price">
+                            <span class="pricing-amount">999</span>
+                            <span class="pricing-currency">€</span>
+                            <p class="pricing-period">À partir de</p>
+                            <span class="pricing-negotiable">💬 Prix négociable selon vos besoins</span>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Analyse concurrentielle complète</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Fonctionnalités illimitées</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Intégrations API tierces</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Intelligence artificielle</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Publication App Store / Play Store</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Maintenance premium 1 an</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-cta">
+                            <button class="btn btn-outline" data-add-to-cart="app-enterprise">🛒 Ajouter au
+                                panier</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- App Examples -->
+                <div class="app-examples">
+                    <p class="app-examples-title">💡 Exemples d'applications qu'on peut créer :</p>
+                    <div class="app-examples-list">
+                        <span class="app-example-tag">📚 E-learning</span>
+                        <span class="app-example-tag">🌍 Langues</span>
+                        <span class="app-example-tag">🎓 Formation</span>
+                        <span class="app-example-tag">📊 Productivité</span>
+                        <span class="app-example-tag">🏋️ Fitness</span>
+                        <span class="app-example-tag">🍽️ Recettes</span>
+                        <span class="app-example-tag">📝 Notes</span>
+                        <span class="app-example-tag">🎯 Objectifs</span>
+                        <span class="app-example-tag">💰 Finance</span>
+                        <span class="app-example-tag">🛒 Commerce</span>
+                    </div>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="pricing-trust">
+                    <p class="pricing-trust-label">Ils nous font confiance</p>
+                    <div class="pricing-trust-logos">
+                        <span class="pricing-trust-logo">TechCorp</span>
+                        <span class="pricing-trust-logo">StartupX</span>
+                        <span class="pricing-trust-logo">InnovateCo</span>
+                        <span class="pricing-trust-logo">DigitalHub</span>
+                        <span class="pricing-trust-logo">FutureLab</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="card cta-card">
+                    <h2 class="section-title">
+                        Vous avez une <span class="text-gradient">idée d'app</span> ?
+                    </h2>
+                    <p class="section-subtitle">
+                        Décrivez-nous votre projet et recevez un devis gratuit sous 24h
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">Discuter de mon projet →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="../index.html" class="footer-logo">
+                            <div class="footer-logo-icon">W</div>
+                            <span class="footer-logo-text">Web Shop</span>
+                        </a>
+                        <p class="footer-description">
+                            Agence web premium spécialisée dans la création de sites web et applications sur-mesure.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/feed/" class="footer-social-link">in</a>
+                            <a href="https://x.com/?lang=fr" class="footer-social-link">𝕏</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Nos Offres</h4>
+                        <a href="offres.html" class="footer-link">Sites Web</a>
+                        <a href="applications.html" class="footer-link">Applications</a>
+                        <a href="abonnement.html" class="footer-link">Abonnements</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Entreprise</h4>
+                        <a href="a-propos.html" class="footer-link">À propos</a>
+                        <a href="temoignages.html" class="footer-link">Témoignages</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Légal</h4>
+                        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+                        <a href="confidentialite.html" class="footer-link">Confidentialité</a>
+                        <a href="cgv.html" class="footer-link">CGV</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/three-effects.js"></script>
+    <script src="../js/gsap-animations.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+
+</html>

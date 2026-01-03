@@ -25,6 +25,7 @@ const Dashboard = {
      */
     async loadOrders() {
         const ordersList = document.getElementById('orders-list');
+        const ordersCount = document.getElementById('orders-count');
         if (!ordersList) return;
 
         // Vérifier si Supabase est configuré
@@ -34,8 +35,9 @@ const Dashboard = {
         }
 
         try {
+            // Charger depuis customer_info (où le checkout sauvegarde les données)
             const { data: orders, error } = await window.supabaseClient
-                .from('orders')
+                .from('customer_info')
                 .select('*')
                 .order('created_at', { ascending: false })
                 .limit(5);
@@ -44,6 +46,11 @@ const Dashboard = {
 
             if (orders && orders.length > 0) {
                 ordersList.innerHTML = orders.map(order => this.renderOrder(order)).join('');
+
+                // Mettre à jour le compteur
+                if (ordersCount) {
+                    ordersCount.textContent = orders.length;
+                }
             }
         } catch (error) {
             console.error('Load orders error:', error);
@@ -246,7 +253,7 @@ const Dashboard = {
     },
 
     /**
-     * Rendre une commande
+     * Rendre une commande (depuis customer_info)
      */
     renderOrder(order) {
         const statusColors = {
@@ -265,28 +272,30 @@ const Dashboard = {
             'cancelled': 'Annulée'
         };
 
-        // Formater les items
-        const itemNames = order.items ?
-            order.items.map(item => item.name || item.description).slice(0, 2).join(', ') +
-            (order.items.length > 2 ? '...' : '') :
-            'Commande';
+        // Formater les items depuis order_items (JSONB)
+        let itemNames = 'Commande';
+        if (order.order_items && Array.isArray(order.order_items) && order.order_items.length > 0) {
+            itemNames = order.order_items.map(item => item.id || item.name).slice(0, 2).join(', ');
+            if (order.order_items.length > 2) itemNames += '...';
+        }
 
         // Générer un numéro de commande lisible
-        const orderNumber = order.id ?
-            'WS-' + order.id.substring(0, 8).toUpperCase() :
-            'WS-XXXX';
+        const orderNumber = order.id ? 'WS-' + String(order.id).padStart(4, '0') : 'WS-XXXX';
+
+        // Nom du client
+        const customerName = `${order.first_name || ''} ${order.last_name || ''}`.trim() || 'Client';
 
         return `
             <div class="order-item">
                 <div class="order-info">
                     <div class="order-number">${orderNumber}</div>
-                    <div class="order-items-preview">${itemNames}</div>
+                    <div class="order-items-preview">${customerName} - ${itemNames}</div>
                     <div class="order-date">${new Date(order.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
                 </div>
                 <div class="order-details">
-                    <div class="order-amount">${parseFloat(order.total).toLocaleString('fr-FR', { minimumFractionDigits: 2 })} €</div>
+                    <div class="order-amount">${parseFloat(order.total || 0).toLocaleString('fr-FR', { minimumFractionDigits: 2 })} €</div>
                     <div class="order-status" style="color: ${statusColors[order.status] || '#71717a'}">
-                        ${statusLabels[order.status] || order.status}
+                        ${statusLabels[order.status] || order.status || 'Inconnu'}
                     </div>
                 </div>
             </div>

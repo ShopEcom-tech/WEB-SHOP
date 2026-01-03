@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Témoignages de nos clients satisfaits">
+    <title>Témoignages - Nexus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <!-- Three.js Container -->
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="../index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
+        <a href="temoignages.html" class="mobile-menu-link active">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="../index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="../index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="abonnement.html" class="navbar-link">Abonnements</a>
+                    <a href="temoignages.html" class="navbar-link active">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="container">
+                <span class="badge"
+                    style="color: #f472b6; background: rgba(236,72,153,0.1); border-color: rgba(236,72,153,0.2);">❤️
+                    Témoignages</span>
+                <h1 class="section-title">
+                    Ce que nos <span class="text-gradient">clients</span> disent
+                </h1>
+                <p class="section-subtitle">
+                    Découvrez les retours de ceux qui nous ont fait confiance pour leur projet digital.
+                </p>
+            </div>
+        </header>
+
+        <!-- Testimonials Section -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+
+                <!-- Main Testimonial Carousel -->
+                <div class="testimonial-main">
+                    <div class="card testimonial-card">
+
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-rating">
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                            </div>
+                            <p class="testimonial-content">
+                                Grâce à Nexus, notre restaurant a gagné en visibilité et nos réservations en ligne ont
+                                doublé. Le site reflète parfaitement l'ambiance de notre établissement.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">👨‍🍳</div>
+                                <div>
+                                    <div class="testimonial-name">Lucas Petit</div>
+                                    <div class="testimonial-role">Gérant • <span>RestauChic</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide" style="display: none;">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-rating">
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                            </div>
+                            <p class="testimonial-content">
+                                Nexus a transformé notre vision en réalité. Le résultat dépasse toutes nos attentes.
+                                L'équipe est professionnelle, réactive et créative. Je recommande vivement !
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">👩‍💼</div>
+                                <div>
+                                    <div class="testimonial-name">Sophie Martin</div>
+                                    <div class="testimonial-role">CEO • <span>TechStart</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide" style="display: none;">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-rating">
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                            </div>
+                            <p class="testimonial-content">
+                                Notre e-commerce génère maintenant 3x plus de ventes grâce à leur expertise. Le site est
+                                rapide, beau et surtout, il convertit ! Un investissement qui a payé.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">👨‍💻</div>
+                                <div>
+                                    <div class="testimonial-name">Thomas Dubois</div>
+                                    <div class="testimonial-role">Fondateur • <span>E-Shop Plus</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="testimonial-slide" style="display: none;">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-rating">
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                                <span class="testimonial-star">★</span>
+                            </div>
+                            <p class="testimonial-content">
+                                Une collaboration exceptionnelle du début à la fin. L'équipe a su comprendre nos besoins
+                                et proposer des solutions innovantes. Résultat : un site qui nous ressemble.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">👩‍🎨</div>
+                                <div>
+                                    <div class="testimonial-name">Marie Laurent</div>
+                                    <div class="testimonial-role">Directrice Marketing • <span>InnovaCorp</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation -->
+                <div class="testimonial-nav">
+                    <button class="testimonial-nav-btn testimonial-prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div class="testimonial-dots">
+                        <button class="testimonial-dot active"></button>
+                        <button class="testimonial-dot"></button>
+                        <button class="testimonial-dot"></button>
+                        <button class="testimonial-dot"></button>
+                    </div>
+                    <button class="testimonial-nav-btn testimonial-next">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="testimonial-stats">
+                    <div class="card testimonial-stat">
+                        <div class="testimonial-stat-value">4.9/5</div>
+                        <div class="testimonial-stat-label">Note moyenne</div>
+                    </div>
+                    <div class="card testimonial-stat">
+                        <div class="testimonial-stat-value">150+</div>
+                        <div class="testimonial-stat-label">Avis clients</div>
+                    </div>
+                    <div class="card testimonial-stat">
+                        <div class="testimonial-stat-value">98%</div>
+                        <div class="testimonial-stat-label">Recommandent</div>
+                    </div>
+                    <div class="card testimonial-stat">
+                        <div class="testimonial-stat-value">100%</div>
+                        <div class="testimonial-stat-label">Projets livrés</div>
+                    </div>
+                </div>
+
+                <!-- All Testimonials Grid -->
+                <div class="section-header" style="margin-top: 80px;">
+                    <h2 class="section-title">
+                        Tous les <span class="text-gradient">avis</span>
+                    </h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="card testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                        </div>
+                        <p class="testimonial-content">
+                            "Grâce à Nexus, notre restaurant a gagné en visibilité et nos réservations en ligne ont
+                            doublé."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👨‍🍳</div>
+                            <div>
+                                <div class="testimonial-name">Lucas Petit</div>
+                                <div class="testimonial-role">RestauChic</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                        </div>
+                        <p class="testimonial-content">
+                            "Nexus a transformé notre vision en réalité. Le résultat dépasse toutes nos attentes."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👩‍💼</div>
+                            <div>
+                                <div class="testimonial-name">Sophie Martin</div>
+                                <div class="testimonial-role">TechStart</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                        </div>
+                        <p class="testimonial-content">
+                            "Notre e-commerce génère maintenant 3x plus de ventes grâce à leur expertise."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👨‍💻</div>
+                            <div>
+                                <div class="testimonial-name">Thomas Dubois</div>
+                                <div class="testimonial-role">E-Shop Plus</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                            <span class="testimonial-star">★</span>
+                        </div>
+                        <p class="testimonial-content">
+                            "Une collaboration exceptionnelle du début à la fin. Je recommande vivement !"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👩‍🎨</div>
+                            <div>
+                                <div class="testimonial-name">Marie Laurent</div>
+                                <div class="testimonial-role">InnovaCorp</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="card cta-card">
+                    <h2 class="section-title">
+                        Rejoignez nos <span class="text-gradient">clients satisfaits</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Faites partie des entreprises qui ont boosté leur présence en ligne avec Nexus.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">Démarrer mon projet →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="../index.html" class="footer-logo">
+                            <div class="footer-logo-icon">N</div>
+                            <span class="footer-logo-text">Nexus</span>
+                        </a>
+                        <p class="footer-description">
+                            Agence web premium spécialisée dans la création de sites web modernes qui maximisent vos
+                            revenus.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/feed/" class="footer-social-link">in</a>
+                            <a href="https://x.com/?lang=fr" class="footer-social-link">𝕏</a>
+                            <a href="https://www.instagram.com/" class="footer-social-link">◎</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Services</h4>
+                        <a href="offres.html" class="footer-link">Site Vitrine</a>
+                        <a href="offres.html" class="footer-link">E-commerce</a>
+                        <a href="offres.html" class="footer-link">Sur-mesure</a>
+                        <a href="services.html" class="footer-link">Maintenance</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Entreprise</h4>
+                        <a href="../index.html" class="footer-link">À propos</a>
+                        <a href="temoignages.html" class="footer-link">Témoignages</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Légal</h4>
+                        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+                        <a href="confidentialite.html" class="footer-link">Confidentialité</a>
+                        <a href="cgv.html" class="footer-link">CGV</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">© 2026 Nexus. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> à Paris, France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/three-effects.js"></script>
+    <script src="../js/gsap-animations.js"></script>
+</body>
+
+</html>

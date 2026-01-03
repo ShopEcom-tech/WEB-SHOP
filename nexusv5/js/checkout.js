@@ -31,10 +31,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     function initCheckout() {
         renderCheckoutItems();
         updateCheckoutSummary();
-        setupPaymentMethodToggle();
         setupPromoCode();
         setupFormValidation();
-        setupCardFormatting();
     }
 
     // Render items in checkout sidebar
@@ -82,48 +80,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (taxEl) taxEl.textContent = window.cart.formatPrice(window.cart.getTax());
         if (totalEl) totalEl.textContent = window.cart.formatPrice(window.cart.getTotal());
         if (mobileTotal) mobileTotal.textContent = window.cart.formatPrice(window.cart.getTotal());
-
-        // Update installments
-        updateInstallments();
-    }
-
-    // Update installment amounts
-    function updateInstallments() {
-        const total = window.cart.getTotal();
-        const installment = total / 3;
-
-        const inst1 = document.getElementById('installment-1');
-        const inst2 = document.getElementById('installment-2');
-        const inst3 = document.getElementById('installment-3');
-
-        if (inst1) inst1.textContent = window.cart.formatPrice(installment);
-        if (inst2) inst2.textContent = window.cart.formatPrice(installment);
-        if (inst3) inst3.textContent = window.cart.formatPrice(installment);
-    }
-
-    // Payment method toggle
-    function setupPaymentMethodToggle() {
-        const paymentOptions = document.querySelectorAll('.payment-option input[type="radio"]');
-        const cardDetails = document.getElementById('card-details');
-        const transferDetails = document.getElementById('transfer-details');
-        const installmentsDetails = document.getElementById('installments-details');
-
-        paymentOptions.forEach(option => {
-            option.addEventListener('change', (e) => {
-                // Update selected state
-                document.querySelectorAll('.payment-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                e.target.closest('.payment-option').classList.add('selected');
-
-                // Show/hide payment details
-                const method = e.target.value;
-
-                if (cardDetails) cardDetails.style.display = method === 'card' ? 'block' : 'none';
-                if (transferDetails) transferDetails.style.display = method === 'transfer' ? 'block' : 'none';
-                if (installmentsDetails) installmentsDetails.style.display = method === 'installments' ? 'block' : 'none';
-            });
-        });
     }
 
     // Promo code
@@ -249,11 +205,64 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Show loading state
         submitBtns.forEach(btn => {
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> Redirection vers Stripe...';
+            btn.innerHTML = '<span class="spinner"></span> Enregistrement en cours...';
         });
 
         try {
-            // Préparer les line items pour Stripe
+            // ====================================
+            // 1. Sauvegarder les infos client dans Supabase
+            // ====================================
+            console.log('📝 Sauvegarde des informations client dans Supabase...');
+
+            let customerId = null;
+
+            if (window.supabaseClient) {
+                const customerData = {
+                    first_name: orderData.customer.firstName,
+                    last_name: orderData.customer.lastName,
+                    email: orderData.customer.email,
+                    phone: orderData.customer.phone || null,
+                    company: orderData.customer.company || null,
+                    address: orderData.billing.address,
+                    postal_code: orderData.billing.postalCode,
+                    city: orderData.billing.city,
+                    country: orderData.billing.country,
+                    project_details: orderData.projectDetails || null,
+                    newsletter: orderData.newsletter || false,
+                    payment_method: orderData.payment?.method || 'stripe_checkout',
+                    order_items: orderData.items,
+                    subtotal: orderData.subtotal,
+                    discount: orderData.discount,
+                    tax: orderData.tax,
+                    total: orderData.total,
+                    promo_code: orderData.promoCode || null,
+                    status: 'pending'
+                };
+
+                const { data, error } = await window.supabaseClient
+                    .from('customer_info')
+                    .insert([customerData])
+                    .select('id')
+                    .single();
+
+                if (error) {
+                    console.warn('⚠️ Erreur Supabase:', error.message);
+                } else {
+                    customerId = data.id;
+                    console.log('✅ Client enregistré dans Supabase avec ID:', customerId);
+                }
+            } else {
+                console.warn('⚠️ Supabase non disponible, on continue sans sauvegarder...');
+            }
+
+            // Update button text
+            submitBtns.forEach(btn => {
+                btn.innerHTML = '<span class="spinner"></span> Redirection vers Stripe...';
+            });
+
+            // ====================================
+            // 2. Préparer les line items pour Stripe
+            // ====================================
             const lineItems = orderData.items.map(item => {
                 const stripeProduct = window.StripeConfig?.products?.[item.id];
                 if (stripeProduct && stripeProduct.priceId) {
@@ -269,7 +278,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 throw new Error('Aucun produit valide dans le panier');
             }
 
-            // Appeler l'Edge Function Supabase pour créer la session Stripe
+            // ====================================
+            // 3. Créer la session Stripe
+            // ====================================
             const response = await fetch('https://eyinuapucyzcdeldyuba.supabase.co/functions/v1/create-checkout-session', {
                 method: 'POST',
                 headers: {
@@ -278,9 +289,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                 body: JSON.stringify({
                     lineItems: lineItems,
                     customerEmail: orderData.customer.email,
-                    successUrl: window.location.origin + '/success.html',
-                    cancelUrl: window.location.origin + '/cancel.html',
+                    successUrl: window.location.origin + '/success.html' + (customerId ? '?cid=' + customerId : ''),
+                    cancelUrl: window.location.origin + '/cancel.html' + (customerId ? '?cid=' + customerId : ''),
                     metadata: {
+                        customerId: customerId || '',
                         customerName: orderData.customer.firstName + ' ' + orderData.customer.lastName,
                         customerPhone: orderData.customer.phone,
                         company: orderData.customer.company || '',
@@ -299,7 +311,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             const { url, sessionId } = await response.json();
 
-            // Rediriger vers Stripe Checkout
+            // ====================================
+            // 4. Rediriger vers Stripe Checkout
+            // ====================================
             if (url) {
                 window.location.href = url;
             } else if (sessionId && window.stripeInstance) {

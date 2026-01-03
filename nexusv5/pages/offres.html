@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Abonnements maintenance mensuelle - Gardez votre site web à jour et sécurisé">
-    <title>Abonnements Maintenance - Web Shop</title>
+    <meta name="description" content="Nos offres - Sites web professionnels à partir de 199€">
+    <title>Nos Offres - Web Shop</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
@@ -40,14 +41,14 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <a href="index.html" class="mobile-menu-link">Accueil</a>
-        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="../index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link active">Sites Web</a>
+        <a href="applications.html" class="mobile-menu-link">Applications</a>
         <a href="services.html" class="mobile-menu-link">Services</a>
-        <a href="abonnement.html" class="mobile-menu-link active">Abonnements</a>
-        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
         <a href="contact.html" class="mobile-menu-link">Contact</a>
         <div class="mobile-menu-cta">
-            <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+            <a href="cart.html" class="btn btn-primary">🛒 Panier (<span class="cart-count-mobile">0</span>)</a>
         </div>
     </div>
 
@@ -55,22 +56,24 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-inner">
-                <a href="index.html" class="navbar-logo">
+                <a href="../index.html" class="navbar-logo">
                     <div class="navbar-logo-icon">W</div>
                     <span class="navbar-logo-text">Web Shop</span>
                 </a>
 
                 <div class="navbar-links">
-                    <a href="index.html" class="navbar-link">Accueil</a>
-                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="../index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link active">Sites Web</a>
+                    <a href="applications.html" class="navbar-link">Applications</a>
                     <a href="services.html" class="navbar-link">Services</a>
-                    <a href="abonnement.html" class="navbar-link active">Abonnements</a>
-                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="abonnement.html" class="navbar-link">Abonnements</a>
                     <a href="contact.html" class="navbar-link">Contact</a>
                 </div>
 
                 <div class="navbar-cta">
-                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
+                    <a href="cart.html" class="btn btn-secondary cart-btn">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
                 </div>
 
                 <button class="navbar-toggle">
@@ -88,13 +91,16 @@
         <!-- Page Header -->
         <header class="page-header">
             <div class="container">
-                <span class="badge">🔧 Abonnements</span>
+                <span class="badge">🌐 Sites Web</span>
                 <h1 class="section-title">
-                    Maintenance <span class="text-gradient">mensuelle</span>
+                    Créez votre <span class="text-gradient">Site Web</span>
                 </h1>
                 <p class="section-subtitle">
-                    Gardez votre site web performant, sécurisé et à jour avec nos formules de maintenance adaptées à vos
-                    besoins.
+                    Du site vitrine à la boutique e-commerce complète. Prix négociables pour tous les budgets.
+                </p>
+                <p style="margin-top: 20px; color: #a78bfa;">
+                    📱 Vous cherchez une application ? <a href="applications.html"
+                        style="color: #f472b6; text-decoration: underline;">Voir nos offres d'applications →</a>
                 </p>
             </div>
         </header>
@@ -104,149 +110,18 @@
             <div class="container">
                 <div class="pricing-grid">
 
-                    <!-- Plan 1: Essentiel -->
+                    <!-- Plan 1: Site Vitrine -->
                     <div class="card pricing-card">
                         <div class="pricing-header">
-                            <h3 class="pricing-name">Essentiel</h3>
-                            <p class="pricing-description">Pour maintenir votre site en bonne santé</p>
-                        </div>
-
-                        <div class="pricing-price">
-                            <span class="pricing-amount">49</span>
-                            <span class="pricing-currency">€</span>
-                            <p class="pricing-period">/mois</p>
-                        </div>
-
-                        <div class="pricing-features">
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Mises à jour régulières</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Sauvegardes hebdomadaires</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Surveillance de sécurité</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Support par email</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Temps de réponse 48h</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-cta">
-                            <a href="contact.html" class="btn btn-outline">Souscrire →</a>
-                        </div>
-                    </div>
-
-                    <!-- Plan 2: Pro (Popular) -->
-                    <div class="card pricing-card popular">
-                        <div class="pricing-badge">⭐ Recommandé</div>
-
-                        <div class="pricing-header">
-                            <h3 class="pricing-name">Pro</h3>
-                            <p class="pricing-description">Pour les sites qui évoluent régulièrement</p>
-                        </div>
-
-                        <div class="pricing-price">
-                            <span class="pricing-amount">99</span>
-                            <span class="pricing-currency">€</span>
-                            <p class="pricing-period">/mois</p>
-                        </div>
-
-                        <div class="pricing-features">
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Tout du plan Essentiel</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Sauvegardes quotidiennes</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">2h de modifications/mois</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Support prioritaire</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Temps de réponse 24h</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Optimisation des performances</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-cta">
-                            <a href="contact.html" class="btn btn-primary">Souscrire →</a>
-                        </div>
-                    </div>
-
-                    <!-- Plan 3: Premium -->
-                    <div class="card pricing-card">
-                        <div class="pricing-header">
-                            <h3 class="pricing-name">Premium</h3>
-                            <p class="pricing-description">Un accompagnement complet et dédié</p>
+                            <h3 class="pricing-name">Site Vitrine</h3>
+                            <p class="pricing-description">Parfait pour présenter votre activité</p>
                         </div>
 
                         <div class="pricing-price">
                             <span class="pricing-amount">199</span>
                             <span class="pricing-currency">€</span>
-                            <p class="pricing-period">/mois</p>
+                            <p class="pricing-period">Paiement unique</p>
+                            <span class="pricing-negotiable">💬 Prix négociable selon vos besoins</span>
                         </div>
 
                         <div class="pricing-features">
@@ -256,7 +131,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="pricing-feature-text">Tout du plan Pro</span>
+                                <span class="pricing-feature-text">Design sur-mesure</span>
                             </div>
                             <div class="pricing-feature">
                                 <div class="pricing-feature-icon">
@@ -264,7 +139,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="pricing-feature-text">5h de modifications/mois</span>
+                                <span class="pricing-feature-text">Jusqu'à 5 pages</span>
                             </div>
                             <div class="pricing-feature">
                                 <div class="pricing-feature-icon">
@@ -272,7 +147,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="pricing-feature-text">Support 24/7</span>
+                                <span class="pricing-feature-text">Responsive (mobile, tablette)</span>
                             </div>
                             <div class="pricing-feature">
                                 <div class="pricing-feature-icon">
@@ -280,7 +155,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="pricing-feature-text">Rapports mensuels détaillés</span>
+                                <span class="pricing-feature-text">Optimisation SEO de base</span>
                             </div>
                             <div class="pricing-feature">
                                 <div class="pricing-feature-icon">
@@ -288,7 +163,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="pricing-feature-text">Temps de réponse 4h</span>
+                                <span class="pricing-feature-text">Formulaire de contact</span>
                             </div>
                             <div class="pricing-feature">
                                 <div class="pricing-feature-icon">
@@ -296,34 +171,184 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="pricing-feature-text">Consultant dédié</span>
-                            </div>
-                            <div class="pricing-feature">
-                                <div class="pricing-feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="pricing-feature-text">Audit SEO trimestriel</span>
+                                <span class="pricing-feature-text">Hébergement 1 an offert</span>
                             </div>
                         </div>
 
                         <div class="pricing-cta">
-                            <a href="contact.html" class="btn btn-outline">Souscrire →</a>
+                            <button class="btn btn-outline" data-add-to-cart="vitrine">🛒 Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Plan 2: E-commerce (Popular) -->
+                    <div class="card pricing-card popular">
+                        <div class="pricing-badge">⭐ Populaire</div>
+
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">E-commerce</h3>
+                            <p class="pricing-description">Lancez votre boutique en ligne</p>
+                        </div>
+
+                        <div class="pricing-price">
+                            <span class="pricing-amount">399</span>
+                            <span class="pricing-currency">€</span>
+                            <p class="pricing-period">Paiement unique</p>
+                            <span class="pricing-negotiable">💬 Prix négociable selon vos besoins</span>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Tout du plan Vitrine</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Jusqu'à 100 produits</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Paiement sécurisé (Stripe)</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Gestion des stocks</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Tableau de bord admin</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Formation incluse</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Support prioritaire 6 mois</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-cta">
+                            <button class="btn btn-primary" data-add-to-cart="ecommerce">🛒 Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Plan 3: Sur-mesure -->
+                    <div class="card pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">Sur-mesure</h3>
+                            <p class="pricing-description">Solution personnalisée à vos besoins</p>
+                        </div>
+
+                        <div class="pricing-price">
+                            <span class="pricing-amount">799</span>
+                            <span class="pricing-currency">€</span>
+                            <p class="pricing-period">À partir de</p>
+                            <span class="pricing-negotiable">💬 Prix négociable selon vos besoins</span>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Architecture personnalisée</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Fonctionnalités sur-mesure</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Intégrations API tierces</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Performances optimisées</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Accompagnement dédié</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">Maintenance premium</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <div class="pricing-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="pricing-feature-text">SLA garanti</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-cta">
+                            <button class="btn btn-outline" data-add-to-cart="surmesure">🛒 Ajouter au panier</button>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- FAQ Section -->
-                <div class="pricing-trust" style="margin-top: 80px;">
-                    <p class="pricing-trust-label">Pourquoi souscrire à un abonnement ?</p>
-                    <div style="max-width: 700px; margin: 24px auto 0; text-align: center;">
-                        <p style="color: #a1a1aa; line-height: 1.8;">
-                            Un site web nécessite une maintenance régulière pour rester sécurisé, performant et à jour.
-                            Nos abonnements vous garantissent une tranquillité d'esprit totale pendant que nous nous
-                            occupons de tout.
-                        </p>
+                <!-- Trust Indicators -->
+                <div class="pricing-trust">
+                    <p class="pricing-trust-label">Ils nous font confiance</p>
+                    <div class="pricing-trust-logos">
+                        <span class="pricing-trust-logo">TechCorp</span>
+                        <span class="pricing-trust-logo">StartupX</span>
+                        <span class="pricing-trust-logo">InnovateCo</span>
+                        <span class="pricing-trust-logo">DigitalHub</span>
+                        <span class="pricing-trust-logo">FutureLab</span>
                     </div>
                 </div>
             </div>
@@ -333,13 +358,14 @@
         <section class="cta-section">
             <div class="container">
                 <div class="card cta-card">
-                    <h2 class="section-title">
-                        Besoin d'un <span class="text-gradient">devis personnalisé</span> ?
-                    </h2>
+                    <h2 class="section-title">Une question ?</h2>
                     <p class="section-subtitle">
-                        Chaque projet est unique. Contactez-nous pour discuter de vos besoins spécifiques.
+                        Contactez-nous pour discuter de votre projet
                     </p>
-                    <a href="contact.html" class="btn btn-primary">Nous contacter →</a>
+                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-secondary">Nous contacter →</a>
+                        <a href="cart.html" class="btn btn-primary">🛒 Voir mon panier</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -349,7 +375,7 @@
             <div class="container">
                 <div class="footer-grid">
                     <div class="footer-brand">
-                        <a href="index.html" class="footer-logo">
+                        <a href="../index.html" class="footer-logo">
                             <div class="footer-logo-icon">W</div>
                             <span class="footer-logo-text">Web Shop</span>
                         </a>
@@ -368,12 +394,12 @@
                         <a href="offres.html" class="footer-link">Site Vitrine</a>
                         <a href="offres.html" class="footer-link">E-commerce</a>
                         <a href="offres.html" class="footer-link">Sur-mesure</a>
-                        <a href="abonnement.html" class="footer-link">Abonnements</a>
+                        <a href="services.html" class="footer-link">Maintenance</a>
                     </div>
 
                     <div class="footer-column">
                         <h4 class="footer-column-title">Entreprise</h4>
-                        <a href="index.html" class="footer-link">À propos</a>
+                        <a href="../index.html" class="footer-link">À propos</a>
                         <a href="temoignages.html" class="footer-link">Témoignages</a>
                         <a href="contact.html" class="footer-link">Contact</a>
                     </div>
@@ -403,9 +429,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script src="script.js"></script>
-    <script src="three-effects.js"></script>
-    <script src="gsap-animations.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/three-effects.js"></script>
+    <script src="../js/gsap-animations.js"></script>
+    <script src="../js/cart.js"></script>
 </body>
 
 </html>

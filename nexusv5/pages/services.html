@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="À propos de Web Shop - Votre agence web premium">
-    <title>À Propos - Web Shop</title>
+    <meta name="description" content="Nos services - Design, SEO, Performance, Sécurité et Maintenance">
+    <title>Nos Services - Nexus</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -32,6 +32,7 @@
         <div class="bg-gradient bg-gradient-2"></div>
         <div class="bg-grid"></div>
         <canvas id="particles-canvas"></canvas>
+        <!-- Three.js Container -->
         <div id="three-container"></div>
     </div>
 
@@ -40,9 +41,9 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="../index.html" class="mobile-menu-link">Accueil</a>
         <a href="offres.html" class="mobile-menu-link">Offres</a>
-        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="services.html" class="mobile-menu-link active">Services</a>
         <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
         <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
         <a href="contact.html" class="mobile-menu-link">Contact</a>
@@ -55,15 +56,15 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-inner">
-                <a href="index.html" class="navbar-logo">
+                <a href="../index.html" class="navbar-logo">
                     <div class="navbar-logo-icon">W</div>
                     <span class="navbar-logo-text">Web Shop</span>
                 </a>
 
                 <div class="navbar-links">
-                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="../index.html" class="navbar-link">Accueil</a>
                     <a href="offres.html" class="navbar-link">Offres</a>
-                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="services.html" class="navbar-link active">Services</a>
                     <a href="abonnement.html" class="navbar-link">Abonnements</a>
                     <a href="temoignages.html" class="navbar-link">Témoignages</a>
                     <a href="contact.html" class="navbar-link">Contact</a>
@@ -88,116 +89,121 @@
         <!-- Page Header -->
         <header class="page-header">
             <div class="container">
-                <span class="badge">👋 À Propos</span>
+                <span class="badge">🚀 Nos Services</span>
                 <h1 class="section-title">
-                    Qui sommes <span class="text-gradient">nous</span> ?
+                    Tout ce dont vous avez <span class="text-gradient">besoin</span>
                 </h1>
                 <p class="section-subtitle">
-                    Une équipe passionnée par le web et dédiée à votre succès.
+                    Nous incluons tout le nécessaire pour que votre site soit performant, sécurisé et prêt à convertir.
                 </p>
             </div>
         </header>
 
-        <!-- About Section -->
+        <!-- Services Section -->
         <section class="section" style="padding-top: 0;">
             <div class="container">
+                <div class="services-grid">
 
-                <!-- Mission -->
-                <div class="about-block">
-                    <div class="card about-card">
-                        <div class="about-icon">🎯</div>
-                        <h2>Notre Mission</h2>
-                        <p>
-                            Chez Web Shop, notre mission est simple : <strong>transformer votre présence en ligne
-                                en un véritable levier de croissance</strong>. Nous croyons que chaque entreprise,
-                            quelle que soit sa taille, mérite un site web de qualité professionnelle qui génère
-                            des résultats concrets.
-                        </p>
-                        <p>
-                            Nous ne créons pas de simples sites web "joli". Nous concevons des outils business
-                            pensés pour convertir vos visiteurs en clients et maximiser votre chiffre d'affaires.
+                    <div class="card service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3 class="service-title">Design UX/UI Premium</h3>
+                        <p class="service-description">
+                            Des interfaces modernes et intuitives conçues pour captiver vos visiteurs et optimiser les
+                            conversions.
                         </p>
                     </div>
+
+                    <div class="card service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3 class="service-title">Optimisation SEO</h3>
+                        <p class="service-description">
+                            Votre site est optimisé pour les moteurs de recherche afin d'améliorer votre visibilité en
+                            ligne.
+                        </p>
+                    </div>
+
+                    <div class="card service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title">100% Responsive</h3>
+                        <p class="service-description">
+                            Une expérience parfaite sur tous les écrans : mobile, tablette et ordinateur.
+                        </p>
+                    </div>
+
+                    <div class="card service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h3 class="service-title">Sécurité Renforcée</h3>
+                        <p class="service-description">
+                            Certificat SSL, protection contre les attaques, sauvegardes automatiques quotidiennes.
+                        </p>
+                    </div>
+
+                    <div class="card service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3 class="service-title">Performance Optimale</h3>
+                        <p class="service-description">
+                            Sites ultra-rapides grâce aux dernières technologies et à l'optimisation avancée.
+                        </p>
+                    </div>
+
+                    <div class="card service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3 class="service-title">Maintenance Incluse</h3>
+                        <p class="service-description">
+                            Mises à jour régulières, corrections de bugs et support technique réactif.
+                        </p>
+                    </div>
+
                 </div>
 
-                <!-- Values -->
-                <div class="section-header" style="margin-top: 80px;">
+                <div class="benefits-link">
+                    <p style="color: #a1a1aa; margin-bottom: 8px;">Vous avez des besoins spécifiques ?</p>
+                    <a href="contact.html">Contactez-nous pour en discuter →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="section process-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">📋 Notre Process</span>
                     <h2 class="section-title">
-                        Nos <span class="text-gradient">valeurs</span>
+                        Comment ça <span class="text-gradient">marche</span>
                     </h2>
+                    <p class="section-subtitle">
+                        Un processus simple et transparent pour donner vie à votre projet.
+                    </p>
                 </div>
 
-                <div class="about-values-grid">
-                    <div class="card about-value-card">
-                        <div class="about-value-icon">💡</div>
-                        <h3>Innovation</h3>
-                        <p>
-                            Nous utilisons les dernières technologies et tendances du web pour créer des sites
-                            modernes et performants.
+                <div class="process-grid">
+                    <div class="card process-card">
+                        <div class="process-step text-gradient">01</div>
+                        <h3 class="process-title">Découverte</h3>
+                        <p class="process-description">On échange sur vos besoins, objectifs et vision pour votre
+                            projet.</p>
+                    </div>
+
+                    <div class="card process-card">
+                        <div class="process-step text-gradient">02</div>
+                        <h3 class="process-title">Conception</h3>
+                        <p class="process-description">Création des maquettes et validation du design avant
+                            développement.</p>
+                    </div>
+
+                    <div class="card process-card">
+                        <div class="process-step text-gradient">03</div>
+                        <h3 class="process-title">Développement</h3>
+                        <p class="process-description">Construction de votre site avec les dernières technologies web.
                         </p>
                     </div>
 
-                    <div class="card about-value-card">
-                        <div class="about-value-icon">🤝</div>
-                        <h3>Transparence</h3>
-                        <p>
-                            Communication claire, prix honnêtes et processus transparent. Pas de mauvaises
-                            surprises avec nous.
-                        </p>
-                    </div>
-
-                    <div class="card about-value-card">
-                        <div class="about-value-icon">⚡</div>
-                        <h3>Performance</h3>
-                        <p>
-                            Nous sommes obsédés par les résultats. Chaque décision est prise pour maximiser
-                            votre retour sur investissement.
-                        </p>
-                    </div>
-
-                    <div class="card about-value-card">
-                        <div class="about-value-icon">💚</div>
-                        <h3>Accessibilité</h3>
-                        <p>
-                            Des sites web de qualité ne devraient pas être réservés aux grandes entreprises.
-                            Nos prix sont adaptés à tous les budgets.
-                        </p>
+                    <div class="card process-card">
+                        <div class="process-step text-gradient">04</div>
+                        <h3 class="process-title">Lancement</h3>
+                        <p class="process-description">Mise en ligne et accompagnement pour un démarrage réussi.</p>
                     </div>
                 </div>
-
-                <!-- Why Us -->
-                <div class="about-block" style="margin-top: 80px;">
-                    <div class="card about-card">
-                        <div class="about-icon">🚀</div>
-                        <h2>Pourquoi nous choisir ?</h2>
-                        <div class="about-features">
-                            <div class="about-feature">
-                                <span class="about-feature-check">✓</span>
-                                <span><strong>Prix négociables</strong> - On s'adapte à votre budget</span>
-                            </div>
-                            <div class="about-feature">
-                                <span class="about-feature-check">✓</span>
-                                <span><strong>Support illimité</strong> - On ne vous abandonne jamais après la
-                                    livraison</span>
-                            </div>
-                            <div class="about-feature">
-                                <span class="about-feature-check">✓</span>
-                                <span><strong>Optimisations gratuites</strong> - Votre site évolue avec vos
-                                    besoins</span>
-                            </div>
-                            <div class="about-feature">
-                                <span class="about-feature-check">✓</span>
-                                <span><strong>Approche business</strong> - Pas juste du design, de vrais
-                                    résultats</span>
-                            </div>
-                            <div class="about-feature">
-                                <span class="about-feature-check">✓</span>
-                                <span><strong>Réactivité</strong> - Réponse sous 24h garantie</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -206,7 +212,7 @@
             <div class="container">
                 <div class="card cta-card">
                     <h2 class="section-title">
-                        Prêt à <span class="text-gradient">collaborer</span> ?
+                        Prêt à booster votre <span class="text-gradient">présence en ligne</span> ?
                     </h2>
                     <p class="section-subtitle">
                         Discutons de votre projet et voyons comment nous pouvons vous aider à atteindre vos objectifs.
@@ -221,9 +227,9 @@
             <div class="container">
                 <div class="footer-grid">
                     <div class="footer-brand">
-                        <a href="index.html" class="footer-logo">
-                            <div class="footer-logo-icon">W</div>
-                            <span class="footer-logo-text">Web Shop</span>
+                        <a href="../index.html" class="footer-logo">
+                            <div class="footer-logo-icon">N</div>
+                            <span class="footer-logo-text">Nexus</span>
                         </a>
                         <p class="footer-description">
                             Agence web premium spécialisée dans la création de sites web modernes qui maximisent vos
@@ -232,6 +238,7 @@
                         <div class="footer-social">
                             <a href="https://www.linkedin.com/feed/" class="footer-social-link">in</a>
                             <a href="https://x.com/?lang=fr" class="footer-social-link">𝕏</a>
+                            <a href="https://www.instagram.com/" class="footer-social-link">◎</a>
                         </div>
                     </div>
 
@@ -259,8 +266,8 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
-                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                    <p class="footer-copyright">© 2026 Nexus. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> à Paris, France</p>
                 </div>
             </div>
         </footer>
@@ -275,9 +282,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script src="script.js"></script>
-    <script src="three-effects.js"></script>
-    <script src="gsap-animations.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/three-effects.js"></script>
+    <script src="../js/gsap-animations.js"></script>
 </body>
 
 </html>
