@@ -3799,3 +3799,97 @@ select {
     font-weight: 600;
     flex-shrink: 0;
 }
+
+/* ========================================
+   CATEGORY TABS & SECTIONS
+   ======================================== */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.category-tab {
+    padding: 16px 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #a1a1aa;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-tab:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.3);
+    color: #fff;
+}
+
+.category-tab.active {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(219, 39, 119, 0.2) 100%);
+    border-color: rgba(124, 58, 237, 0.5);
+    color: #fff;
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.category-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.category-subtitle {
+    font-size: 16px;
+    color: #a1a1aa;
+}
+
+.category-section {
+    padding-top: 60px;
+}
+
+/* App Examples */
+.app-examples {
+    margin-top: 48px;
+    text-align: center;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+}
+
+.app-examples-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #d4d4d8;
+}
+
+.app-examples-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.app-example-tag {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(219, 39, 119, 0.1) 100%);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #a78bfa;
+    transition: all 0.3s ease;
+}
+
+.app-example-tag:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(219, 39, 119, 0.2) 100%);
+    transform: scale(1.05);
+}

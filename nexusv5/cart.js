@@ -4,13 +4,15 @@
 
 // Products data
 const PRODUCTS = {
+    // Sites Web
     'vitrine': {
         id: 'vitrine',
         name: 'Site Vitrine',
         description: 'Parfait pour présenter votre activité',
         price: 199,
         features: ['Design sur-mesure', 'Jusqu\'à 5 pages', 'Responsive', 'SEO de base', 'Formulaire de contact', 'Hébergement 1 an offert'],
-        icon: '🌐'
+        icon: '🌐',
+        category: 'sites'
     },
     'ecommerce': {
         id: 'ecommerce',
@@ -19,7 +21,8 @@ const PRODUCTS = {
         price: 399,
         features: ['Tout du plan Vitrine', 'Jusqu\'à 100 produits', 'Paiement sécurisé', 'Gestion des stocks', 'Tableau de bord admin', 'Support prioritaire 6 mois'],
         icon: '🛍️',
-        popular: true
+        popular: true,
+        category: 'sites'
     },
     'surmesure': {
         id: 'surmesure',
@@ -28,7 +31,38 @@ const PRODUCTS = {
         price: 799,
         features: ['Architecture personnalisée', 'Fonctionnalités sur-mesure', 'Intégrations API', 'Performances optimisées', 'Accompagnement dédié', 'Maintenance premium'],
         icon: '⚡',
-        customPrice: true
+        customPrice: true,
+        category: 'sites'
+    },
+    // Applications
+    'app-basic': {
+        id: 'app-basic',
+        name: 'App Essentielle',
+        description: 'Idéale pour lancer votre projet',
+        price: 299,
+        features: ['Application mobile ou web', 'Jusqu\'à 5 fonctionnalités', 'Design moderne', 'Authentification', 'Base de données', 'Support 3 mois'],
+        icon: '📱',
+        category: 'apps'
+    },
+    'app-pro': {
+        id: 'app-pro',
+        name: 'App Pro',
+        description: 'Pour les projets ambitieux',
+        price: 599,
+        features: ['Tout de l\'App Essentielle', 'E-learning / Quiz', 'Tableau de bord admin', 'Notifications push', 'Paiement Stripe', 'Formation + Support 6 mois'],
+        icon: '🚀',
+        popular: true,
+        category: 'apps'
+    },
+    'app-enterprise': {
+        id: 'app-enterprise',
+        name: 'App Sur-Mesure',
+        description: 'Solution 100% personnalisée',
+        price: 999,
+        features: ['Analyse concurrentielle', 'Fonctionnalités illimitées', 'Intégrations API', 'Intelligence artificielle', 'Publication stores', 'Maintenance 1 an'],
+        icon: '💎',
+        customPrice: true,
+        category: 'apps'
     }
 };
 
