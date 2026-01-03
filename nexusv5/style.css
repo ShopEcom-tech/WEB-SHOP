@@ -3648,3 +3648,119 @@ select {
 .back-link:hover {
     color: #a78bfa;
 }
+
+/* Success Page Specific */
+.success-card {
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.success-order-info {
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 32px;
+}
+
+.order-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.order-info-row:not(:last-child) {
+    border-bottom: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+.order-label {
+    color: #a1a1aa;
+    font-size: 14px;
+}
+
+.order-value {
+    font-weight: 600;
+    color: #4ade80;
+}
+
+/* ========================================
+   DASHBOARD ORDER ITEMS
+   ======================================== */
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.order-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.order-info {
+    flex: 1;
+}
+
+.order-number {
+    font-weight: 600;
+    color: #f4f4f5;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.order-items-preview {
+    font-size: 13px;
+    color: #a1a1aa;
+    margin-bottom: 4px;
+}
+
+.order-date {
+    font-size: 12px;
+    color: #71717a;
+}
+
+.order-details {
+    text-align: right;
+}
+
+.order-amount {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f4f4f5;
+    margin-bottom: 4px;
+}
+
+.order-status {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f4f4f5;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 14px;
+    color: #a1a1aa;
+    margin-bottom: 24px;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paiement réussi - Web Shop">
+    <title>Paiement réussi - Web Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
+        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="abonnement.html" class="navbar-link">Abonnements</a>
+                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="index.html" class="btn btn-primary">Accueil</a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Success Section -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-required-container">
+
+                    <!-- Main Card -->
+                    <div class="card auth-required-card success-card">
+                        <div class="auth-required-icon">✅</div>
+                        <h1 class="auth-required-title">
+                            Paiement <span class="text-gradient">réussi !</span>
+                        </h1>
+                        <p class="auth-required-text">
+                            Merci pour votre confiance ! Votre commande a été confirmée et vous allez recevoir
+                            un email de confirmation avec tous les détails.
+                        </p>
+
+                        <div class="success-order-info">
+                            <div class="order-info-row">
+                                <span class="order-label">N° de commande</span>
+                                <span class="order-value" id="order-number">WS-2026-XXXX</span>
+                            </div>
+                            <div class="order-info-row">
+                                <span class="order-label">Date</span>
+                                <span class="order-value" id="order-date">--</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-required-benefits">
+                            <p class="auth-required-benefits-title">Prochaines étapes :</p>
+                            <div class="auth-required-benefit">
+                                <span class="benefit-check">1</span>
+                                <span>Email de confirmation envoyé sous 5 minutes</span>
+                            </div>
+                            <div class="auth-required-benefit">
+                                <span class="benefit-check">2</span>
+                                <span>Notre équipe vous contactera sous 24h</span>
+                            </div>
+                            <div class="auth-required-benefit">
+                                <span class="benefit-check">3</span>
+                                <span>Kickoff meeting pour démarrer votre projet</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-required-buttons" style="margin-top: 32px;">
+                            <a href="dashboard.html" class="btn btn-primary">Accéder à mon espace →</a>
+                            <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="three-effects.js"></script>
+    <script src="gsap-animations.js"></script>
+
+    <script>
+        // Générer un numéro de commande et afficher la date
+        document.addEventListener('DOMContentLoaded', function () {
+            // Numéro de commande
+            const orderNumber = 'WS-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            document.getElementById('order-number').textContent = orderNumber;
+
+            // Date
+            const now = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('order-date').textContent = now.toLocaleDateString('fr-FR', options);
+
+            // Vider le panier
+            localStorage.removeItem('webshop_cart');
+        });
+    </script>
+</body>
+
+</html>

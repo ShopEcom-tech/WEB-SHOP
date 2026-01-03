@@ -251,28 +251,40 @@ const Dashboard = {
     renderOrder(order) {
         const statusColors = {
             'pending': '#f59e0b',
-            'confirmed': '#3b82f6',
-            'in_progress': '#8b5cf6',
-            'completed': '#10b981',
+            'paid': '#10b981',
+            'failed': '#ef4444',
+            'refunded': '#6b7280',
             'cancelled': '#ef4444'
         };
 
         const statusLabels = {
             'pending': 'En attente',
-            'confirmed': 'Confirmée',
-            'in_progress': 'En cours',
-            'completed': 'Terminée',
+            'paid': 'Payée',
+            'failed': 'Échouée',
+            'refunded': 'Remboursée',
             'cancelled': 'Annulée'
         };
+
+        // Formater les items
+        const itemNames = order.items ?
+            order.items.map(item => item.name || item.description).slice(0, 2).join(', ') +
+            (order.items.length > 2 ? '...' : '') :
+            'Commande';
+
+        // Générer un numéro de commande lisible
+        const orderNumber = order.id ?
+            'WS-' + order.id.substring(0, 8).toUpperCase() :
+            'WS-XXXX';
 
         return `
             <div class="order-item">
                 <div class="order-info">
-                    <div class="order-number">${order.order_number}</div>
-                    <div class="order-date">${new Date(order.created_at).toLocaleDateString('fr-FR')}</div>
+                    <div class="order-number">${orderNumber}</div>
+                    <div class="order-items-preview">${itemNames}</div>
+                    <div class="order-date">${new Date(order.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
                 </div>
                 <div class="order-details">
-                    <div class="order-amount">${parseFloat(order.final_amount).toLocaleString('fr-FR')} €</div>
+                    <div class="order-amount">${parseFloat(order.total).toLocaleString('fr-FR', { minimumFractionDigits: 2 })} €</div>
                     <div class="order-status" style="color: ${statusColors[order.status] || '#71717a'}">
                         ${statusLabels[order.status] || order.status}
                     </div>

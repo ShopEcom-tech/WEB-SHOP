@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paiement annulé - Web Shop">
+    <title>Paiement annulé - Web Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-grid"></div>
+        <canvas id="particles-canvas"></canvas>
+        <div id="three-container"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Accueil</a>
+        <a href="offres.html" class="mobile-menu-link">Offres</a>
+        <a href="services.html" class="mobile-menu-link">Services</a>
+        <a href="abonnement.html" class="mobile-menu-link">Abonnements</a>
+        <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <div class="mobile-menu-cta">
+            <a href="cart.html" class="btn btn-primary">Retour au panier</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="index.html" class="navbar-logo">
+                    <div class="navbar-logo-icon">W</div>
+                    <span class="navbar-logo-text">Web Shop</span>
+                </a>
+
+                <div class="navbar-links">
+                    <a href="index.html" class="navbar-link">Accueil</a>
+                    <a href="offres.html" class="navbar-link">Offres</a>
+                    <a href="services.html" class="navbar-link">Services</a>
+                    <a href="abonnement.html" class="navbar-link">Abonnements</a>
+                    <a href="temoignages.html" class="navbar-link">Témoignages</a>
+                    <a href="contact.html" class="navbar-link">Contact</a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="cart.html" class="btn btn-secondary">🛒 Panier</a>
+                </div>
+
+                <button class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Cancel Section -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-required-container">
+
+                    <!-- Main Card -->
+                    <div class="card auth-required-card">
+                        <div class="auth-required-icon">😕</div>
+                        <h1 class="auth-required-title">
+                            Paiement <span class="text-gradient">annulé</span>
+                        </h1>
+                        <p class="auth-required-text">
+                            Votre paiement a été annulé. Pas d'inquiétude, votre panier a été conservé
+                            et vous pouvez reprendre votre commande à tout moment.
+                        </p>
+
+                        <div class="auth-required-benefits">
+                            <p class="auth-required-benefits-title">Besoin d'aide ?</p>
+                            <div class="auth-required-benefit">
+                                <span class="benefit-check">💬</span>
+                                <span>Contactez-nous si vous avez des questions</span>
+                            </div>
+                            <div class="auth-required-benefit">
+                                <span class="benefit-check">📞</span>
+                                <span>Appelez-nous pour une assistance personnalisée</span>
+                            </div>
+                            <div class="auth-required-benefit">
+                                <span class="benefit-check">💳</span>
+                                <span>Paiement 100% sécurisé par Stripe</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-required-buttons" style="margin-top: 32px;">
+                            <a href="cart.html" class="btn btn-primary">Reprendre ma commande →</a>
+                            <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+                        </div>
+                    </div>
+
+                    <!-- Back Link -->
+                    <div class="auth-required-back">
+                        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                    <p class="footer-copyright">© 2026 Web Shop. Tous droits réservés.</p>
+                    <p class="footer-credit">Conçu avec <span>♥</span> en France</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="three-effects.js"></script>
+    <script src="gsap-animations.js"></script>
+</body>
+
+</html>

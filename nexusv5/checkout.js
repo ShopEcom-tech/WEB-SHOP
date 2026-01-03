@@ -242,33 +242,82 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     }
 
-    // Simulate payment processing
+    // Process payment with Stripe Checkout
     async function processPayment(orderData) {
         const submitBtns = document.querySelectorAll('.btn-checkout-submit');
 
         // Show loading state
         submitBtns.forEach(btn => {
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> Traitement en cours...';
+            btn.innerHTML = '<span class="spinner"></span> Redirection vers Stripe...';
         });
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            // Préparer les line items pour Stripe
+            const lineItems = orderData.items.map(item => {
+                const stripeProduct = window.StripeConfig?.products?.[item.id];
+                if (stripeProduct && stripeProduct.priceId) {
+                    return {
+                        price: stripeProduct.priceId,
+                        quantity: item.quantity || 1
+                    };
+                }
+                return null;
+            }).filter(item => item !== null);
 
-        // Generate order ID
-        const orderId = 'WS-' + new Date().getFullYear() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+            if (lineItems.length === 0) {
+                throw new Error('Aucun produit valide dans le panier');
+            }
 
-        // Clear cart
-        window.cart.clearCart();
+            // Appeler l'Edge Function Supabase pour créer la session Stripe
+            const response = await fetch('https://eyinuapucyzcdeldyuba.supabase.co/functions/v1/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    lineItems: lineItems,
+                    customerEmail: orderData.customer.email,
+                    successUrl: window.location.origin + '/success.html',
+                    cancelUrl: window.location.origin + '/cancel.html',
+                    metadata: {
+                        customerName: orderData.customer.firstName + ' ' + orderData.customer.lastName,
+                        customerPhone: orderData.customer.phone,
+                        company: orderData.customer.company || '',
+                        address: orderData.billing.address,
+                        city: orderData.billing.city,
+                        postalCode: orderData.billing.postalCode,
+                        country: orderData.billing.country
+                    }
+                })
+            });
 
-        // Show success modal
-        showSuccessModal(orderId);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Erreur lors de la création de la session de paiement');
+            }
 
-        // Reset button state
-        submitBtns.forEach(btn => {
-            btn.disabled = false;
-            btn.innerHTML = 'Confirmer et payer →';
-        });
+            const { url, sessionId } = await response.json();
+
+            // Rediriger vers Stripe Checkout
+            if (url) {
+                window.location.href = url;
+            } else if (sessionId && window.stripeInstance) {
+                await window.stripeInstance.redirectToCheckout({ sessionId });
+            } else {
+                throw new Error('Impossible de rediriger vers le paiement');
+            }
+
+        } catch (error) {
+            console.error('Erreur paiement:', error);
+            alert('Erreur lors du paiement: ' + error.message);
+
+            // Reset button state
+            submitBtns.forEach(btn => {
+                btn.disabled = false;
+                btn.innerHTML = 'Confirmer et payer →';
+            });
+        }
     }
 
     // Success modal
