@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Votre panier - Web Shop">
-    <title>Panier - Web Shop</title>
+    <meta name="description" content="À propos de Web Shop - Votre agence web premium">
+    <title>À Propos - Web Shop</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +47,7 @@
         <a href="temoignages.html" class="mobile-menu-link">Témoignages</a>
         <a href="contact.html" class="mobile-menu-link">Contact</a>
         <div class="mobile-menu-cta">
-            <a href="cart.html" class="btn btn-primary">🛒 Panier (<span class="cart-count-mobile">0</span>)</a>
+            <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
         </div>
     </div>
 
@@ -70,9 +70,7 @@
                 </div>
 
                 <div class="navbar-cta">
-                    <a href="cart.html" class="btn btn-secondary cart-btn">
-                        🛒 <span class="cart-count">0</span>
-                    </a>
+                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
                 </div>
 
                 <button class="navbar-toggle">
@@ -90,104 +88,131 @@
         <!-- Page Header -->
         <header class="page-header">
             <div class="container">
-                <span class="badge">🛒 Votre Panier</span>
+                <span class="badge">👋 À Propos</span>
                 <h1 class="section-title">
-                    Récapitulatif de votre <span class="text-gradient">commande</span>
+                    Qui sommes <span class="text-gradient">nous</span> ?
                 </h1>
                 <p class="section-subtitle">
-                    Vérifiez les prestations sélectionnées avant de procéder au paiement.
+                    Une équipe passionnée par le web et dédiée à votre succès.
                 </p>
             </div>
         </header>
 
-        <!-- Cart Section -->
+        <!-- About Section -->
         <section class="section" style="padding-top: 0;">
             <div class="container">
 
-                <!-- Empty Cart Message -->
-                <div id="empty-cart" class="empty-cart" style="display: none;">
-                    <div class="card empty-cart-card">
-                        <div class="empty-cart-icon">🛒</div>
-                        <h3>Votre panier est vide</h3>
-                        <p>Découvrez nos offres et ajoutez des prestations à votre panier.</p>
-                        <a href="offres.html" class="btn btn-primary">Voir nos offres →</a>
+                <!-- Mission -->
+                <div class="about-block">
+                    <div class="card about-card">
+                        <div class="about-icon">🎯</div>
+                        <h2>Notre Mission</h2>
+                        <p>
+                            Chez Web Shop, notre mission est simple : <strong>transformer votre présence en ligne
+                                en un véritable levier de croissance</strong>. Nous croyons que chaque entreprise,
+                            quelle que soit sa taille, mérite un site web de qualité professionnelle qui génère
+                            des résultats concrets.
+                        </p>
+                        <p>
+                            Nous ne créons pas de simples sites web "joli". Nous concevons des outils business
+                            pensés pour convertir vos visiteurs en clients et maximiser votre chiffre d'affaires.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Cart Content -->
-                <div id="cart-content" class="cart-layout">
+                <!-- Values -->
+                <div class="section-header" style="margin-top: 80px;">
+                    <h2 class="section-title">
+                        Nos <span class="text-gradient">valeurs</span>
+                    </h2>
+                </div>
 
-                    <!-- Cart Items -->
-                    <div class="cart-items">
-                        <div class="card cart-items-card">
-                            <h3 class="cart-items-title">Prestations sélectionnées</h3>
-                            <div id="cart-items-list" class="cart-items-list">
-                                <!-- Items will be inserted here by JS -->
-                            </div>
-                        </div>
-
-                        <!-- Add More Services -->
-                        <div class="cart-add-more">
-                            <a href="offres.html" class="btn btn-secondary">+ Ajouter d'autres prestations</a>
-                        </div>
+                <div class="about-values-grid">
+                    <div class="card about-value-card">
+                        <div class="about-value-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>
+                            Nous utilisons les dernières technologies et tendances du web pour créer des sites
+                            modernes et performants.
+                        </p>
                     </div>
 
-                    <!-- Cart Summary -->
-                    <div class="cart-summary">
-                        <div class="card cart-summary-card">
-                            <h3 class="cart-summary-title">Résumé</h3>
+                    <div class="card about-value-card">
+                        <div class="about-value-icon">🤝</div>
+                        <h3>Transparence</h3>
+                        <p>
+                            Communication claire, prix honnêtes et processus transparent. Pas de mauvaises
+                            surprises avec nous.
+                        </p>
+                    </div>
 
-                            <div class="cart-summary-details">
-                                <div class="cart-summary-row">
-                                    <span>Sous-total</span>
-                                    <span id="cart-subtotal">0 €</span>
-                                </div>
-                                <div class="cart-summary-row">
-                                    <span>TVA (20%)</span>
-                                    <span id="cart-tax">0 €</span>
-                                </div>
-                                <div class="cart-summary-row cart-summary-total">
-                                    <span>Total TTC</span>
-                                    <span id="cart-total" class="text-gradient">0 €</span>
-                                </div>
-                            </div>
+                    <div class="card about-value-card">
+                        <div class="about-value-icon">⚡</div>
+                        <h3>Performance</h3>
+                        <p>
+                            Nous sommes obsédés par les résultats. Chaque décision est prise pour maximiser
+                            votre retour sur investissement.
+                        </p>
+                    </div>
 
-                            <div class="cart-summary-actions">
-                                <a href="checkout.html" class="btn btn-primary btn-checkout">
-                                    Procéder au paiement →
-                                </a>
-                                <p class="cart-secure-text">🔒 Paiement 100% sécurisé</p>
-                            </div>
+                    <div class="card about-value-card">
+                        <div class="about-value-icon">💚</div>
+                        <h3>Accessibilité</h3>
+                        <p>
+                            Des sites web de qualité ne devraient pas être réservés aux grandes entreprises.
+                            Nos prix sont adaptés à tous les budgets.
+                        </p>
+                    </div>
+                </div>
 
-                            <!-- Payment Methods -->
-                            <div class="cart-payment-methods">
-                                <p class="cart-payment-label">Moyens de paiement acceptés</p>
-                                <div class="cart-payment-icons">
-                                    <span class="payment-icon">💳</span>
-                                    <span class="payment-icon">🏦</span>
-                                    <span class="payment-icon">📱</span>
-                                </div>
+                <!-- Why Us -->
+                <div class="about-block" style="margin-top: 80px;">
+                    <div class="card about-card">
+                        <div class="about-icon">🚀</div>
+                        <h2>Pourquoi nous choisir ?</h2>
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <span class="about-feature-check">✓</span>
+                                <span><strong>Prix négociables</strong> - On s'adapte à votre budget</span>
                             </div>
-                        </div>
-
-                        <!-- Trust Badges -->
-                        <div class="cart-trust">
-                            <div class="cart-trust-item">
-                                <span class="cart-trust-icon">✓</span>
-                                <span>Garantie satisfait ou remboursé</span>
+                            <div class="about-feature">
+                                <span class="about-feature-check">✓</span>
+                                <span><strong>Support illimité</strong> - On ne vous abandonne jamais après la
+                                    livraison</span>
                             </div>
-                            <div class="cart-trust-item">
-                                <span class="cart-trust-icon">✓</span>
-                                <span>Support dédié inclus</span>
+                            <div class="about-feature">
+                                <span class="about-feature-check">✓</span>
+                                <span><strong>Optimisations gratuites</strong> - Votre site évolue avec vos
+                                    besoins</span>
                             </div>
-                            <div class="cart-trust-item">
-                                <span class="cart-trust-icon">✓</span>
-                                <span>Livraison sous 2-4 semaines</span>
+                            <div class="about-feature">
+                                <span class="about-feature-check">✓</span>
+                                <span><strong>Approche business</strong> - Pas juste du design, de vrais
+                                    résultats</span>
+                            </div>
+                            <div class="about-feature">
+                                <span class="about-feature-check">✓</span>
+                                <span><strong>Réactivité</strong> - Réponse sous 24h garantie</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="card cta-card">
+                    <h2 class="section-title">
+                        Prêt à <span class="text-gradient">collaborer</span> ?
+                    </h2>
+                    <p class="section-subtitle">
+                        Discutons de votre projet et voyons comment nous pouvons vous aider à atteindre vos objectifs.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">Démarrer mon projet →</a>
+                </div>
             </div>
         </section>
 
@@ -220,7 +245,7 @@
 
                     <div class="footer-column">
                         <h4 class="footer-column-title">Entreprise</h4>
-                        <a href="index.html" class="footer-link">À propos</a>
+                        <a href="a-propos.html" class="footer-link">À propos</a>
                         <a href="temoignages.html" class="footer-link">Témoignages</a>
                         <a href="contact.html" class="footer-link">Contact</a>
                     </div>
@@ -253,7 +278,6 @@
     <script src="script.js"></script>
     <script src="three-effects.js"></script>
     <script src="gsap-animations.js"></script>
-    <script src="cart.js"></script>
 </body>
 
 </html>

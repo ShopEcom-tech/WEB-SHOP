@@ -3648,3 +3648,154 @@ select {
 .back-link:hover {
     color: #a78bfa;
 }
+
+/* ========================================
+   LEGAL PAGES
+   ======================================== */
+.legal-section {
+    padding-bottom: 60px;
+}
+
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-block {
+    margin-bottom: 40px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+}
+
+.legal-block h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.legal-block p {
+    font-size: 15px;
+    color: #a1a1aa;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.legal-block p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-block ul {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.legal-block li {
+    font-size: 15px;
+    color: #a1a1aa;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    list-style: disc;
+}
+
+.legal-block a {
+    color: #a78bfa;
+    transition: color 0.3s ease;
+}
+
+.legal-block a:hover {
+    color: #c4b5fd;
+}
+
+.legal-back {
+    text-align: center;
+    margin-top: 48px;
+}
+
+/* ========================================
+   ABOUT PAGE
+   ======================================== */
+.about-block {
+    margin-bottom: 48px;
+}
+
+.about-card {
+    padding: 48px;
+    text-align: center;
+}
+
+.about-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.about-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.about-card p {
+    font-size: 16px;
+    color: #a1a1aa;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 16px;
+}
+
+.about-values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .about-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.about-value-card {
+    padding: 32px;
+    text-align: center;
+}
+
+.about-value-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.about-value-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.about-value-card p {
+    font-size: 14px;
+    color: #a1a1aa;
+    line-height: 1.7;
+}
+
+.about-features {
+    text-align: left;
+    max-width: 500px;
+    margin: 24px auto 0;
+}
+
+.about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #d4d4d8;
+}
+
+.about-feature-check {
+    color: #4ade80;
+    font-weight: 600;
+    flex-shrink: 0;
+}
